@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{303cb01b-bd13-4e18-9bff-5a37e4fd6f9a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{fb0ade3f-76a6-45b0-9a97-310111809785}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{48b36456-c0c4-4a55-a4d8-460ac081b261}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Dialogs">
+      <UniqueIdentifier>{40c98d0d-b433-47ed-8be5-7910701fefac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{48f94817-e8b1-4def-8825-8291447313c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dialogs">
+      <UniqueIdentifier>{fc0b6014-59cd-4b77-9710-f1f7cf6ba503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{15ba8c20-a148-4e73-bfc0-89f1cecf5c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Icons">
+      <UniqueIdentifier>{0f932478-e42d-4543-8618-7f3a5fed37ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Resource">
+      <UniqueIdentifier>{30c5ea20-959e-4acf-af15-24a07cee440a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\App">
+      <UniqueIdentifier>{1ac0a86f-674a-43fb-941f-775055f9a200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\App">
+      <UniqueIdentifier>{5a61a027-513d-4ca3-be3b-0ec55d182574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controls">
+      <UniqueIdentifier>{fe4a5a93-5b1c-4193-9118-f570f76aded6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controls">
+      <UniqueIdentifier>{50594a69-6b4d-42b0-a813-47a3765142b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Nodes">
+      <UniqueIdentifier>{6bb78da8-d4dc-4d69-9bde-133451385c5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Nodes">
+      <UniqueIdentifier>{5cbb2992-3c05-464e-9d89-659909f90f40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ExcludedDirectoriesDlg.cpp">
+      <Filter>Source Files\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="JobDialog.cpp">
+      <Filter>Source Files\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SchedulerDialog.cpp">
+      <Filter>Source Files\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLnInfo.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="FilePath.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Merge.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Run.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduledTask.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="InSync.cpp">
+      <Filter>Source Files\App</Filter>
+    </ClCompile>
+    <ClCompile Include="InsyncCheckbox.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDlg.cpp">
+      <Filter>Source Files\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Versioninfo.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="VssHelper.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="InsyncDlg.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboBox.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="DirListBox.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="InsyncButton.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="InsyncListbox.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolTipCtrl.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="SchedulerEvent.cpp">
+      <Filter>Source Files\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="JobNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="SrcNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrgNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="XML.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLOptions.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ico\abort.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\add.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\clone.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\dillo.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\edit.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\exclude.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\green.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\help.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync000.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insyncsig.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync020.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync040.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync060.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync080.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync100.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync120.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync140.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync160.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync180.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync200.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync220.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync240.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync260.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync280.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync300.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync320.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\insync340.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\recycle.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\simulate.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\red.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\remove.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\run.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\save.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\schedule.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\view.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="ico\yellow.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SchedulerDialog.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="JobDialog.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLOptions.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLnInfo.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePath.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpContext.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Run.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduledTask.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcludedDirectoriesDlg.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="InSync.h">
+      <Filter>Header Files\App</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDlg.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Versioninfo.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="VssHelper.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="InsyncDlg.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Verification.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ScopedLock.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="DirListBox.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="InsyncButton.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBox.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="InsyncCheckbox.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="InsyncListbox.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolTipCtrl.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="SchedulerEvent.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="XML.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insync.rc">
+      <Filter>Resource Files\Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Insync.manifest.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

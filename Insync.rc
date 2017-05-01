@@ -1,0 +1,469 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#define PBS_SMOOTHREVERSE 0x10
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#define PBS_SMOOTHREVERSE 0x10\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "//****************************************************************************//// Copyright (c) 1998-2014 Dillobits Software Inc.//// This program is the proprietary software of Dillobits Software and/or its// licensors, and may only be used, duplicated, modified or distributed// pursuant to the terms and conditions of a separate, written license// agreement executed between you and Dillobits Software (an 'Authorized// License'). Except as set forth in an Authorized License, Dillobits Software// grants no license (express or implied), right to use, or waiver of any kind// with respect to the Software, and Dillobits Software expressly reserves all// rights in and to the Software and all intellectual property rights therein.// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND// DISCONTINUE ALL USE OF THE SOFTWARE.////****************************************************************************\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#endif\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_INSYNC_ICON         ICON                    "ico/insync.ico"
+
+IDI_LED_GREEN           ICON                    "ico/green.ico"
+
+IDI_VIEW                ICON                    "ico/view.ico"
+
+IDI_MIRROR              ICON                    "ico/recycle.ico"
+
+IDI_ICON000             ICON                    "ico/insync000.ico"
+
+IDI_ICON020             ICON                    "ico/insync020.ico"
+
+IDI_ICON040             ICON                    "ico/insync040.ico"
+
+IDI_ICON060             ICON                    "ico/insync060.ico"
+
+IDI_ICON080             ICON                    "ico/insync080.ico"
+
+IDI_ICON100             ICON                    "ico/insync100.ico"
+
+IDI_ICON120             ICON                    "ico/insync120.ico"
+
+IDI_ICON140             ICON                    "ico/insync140.ico"
+
+IDI_ICON160             ICON                    "ico/insync160.ico"
+
+IDI_ICON180             ICON                    "ico/insync180.ico"
+
+IDI_ICON200             ICON                    "ico/insync200.ico"
+
+IDI_ICON220             ICON                    "ico/insync220.ico"
+
+IDI_ICON240             ICON                    "ico/insync240.ico"
+
+IDI_ICON260             ICON                    "ico/insync260.ico"
+
+IDI_ICON280             ICON                    "ico/insync280.ico"
+
+IDI_ICON300             ICON                    "ico/insync300.ico"
+
+IDI_ICON320             ICON                    "ico/insync320.ico"
+
+IDI_ICON340             ICON                    "ico/insync340.ico"
+
+IDI_SIG_ICON            ICON                    "ico/insyncsig.ico"
+
+IDI_CLONE               ICON                    "ico/clone.ico"
+
+IDI_ADD                 ICON                    "ico/add.ico"
+
+IDI_EDIT                ICON                    "ico/edit.ico"
+
+IDI_REMOVE              ICON                    "ico/remove.ico"
+
+IDI_RUN                 ICON                    "ico/run.ico"
+
+IDI_SIMULATE            ICON                    "ico/simulate.ico"
+
+IDI_ABORT               ICON                    "ico/abort.ico"
+
+IDI_SCHEDULE            ICON                    "ico/schedule.ico"
+
+IDI_SAVE                ICON                    "ico/save.ico"
+
+IDI_HELP                ICON                    "ico/help.ico"
+
+IDI_EXCLUDE             ICON                    "ico/exclude.ico"
+
+IDI_LED_YELLOW          ICON                    "ico/yellow.ico"
+
+IDI_LED_RED             ICON                    "ico/red.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INSYNC_DIALOG DIALOGEX 0, 0, 578, 235
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "InSync"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "InSync Jobs and Options",IDC_STATIC_FOLDER_GROUP,7,7,279,198
+    LTEXT           "",IDC_CONFIG_STATIC,44,18,230,8,SS_PATHELLIPSIS
+    PUSHBUTTON      "Add Job...",IDC_ADD_JOB_BUTTON,16,32,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Edit Job...",IDC_EDIT_JOB_BUTTON,16,47,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Remove Job",IDC_REMOVE_JOB_BUTTON,16,62,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Clone Job...",IDC_CLONE_JOB_BUTTON,16,77,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Reverse Job...",IDC_MIRROR_JOB_BUTTON,16,92,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Run Job",IDC_RUN_JOBS_BUTTON,16,107,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Simulate Job",IDC_SIMULATE_JOBS_BUTTON,16,122,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Abort Job",IDC_ABORT_JOBS_BUTTON,16,137,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Schedule",IDC_SCHEDULE_JOBS_BUTTON,16,152,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Save Selection",IDC_SAVE_JOBS_BUTTON,16,167,72,14,BS_CENTER | BS_VCENTER
+    LISTBOX         IDC_JOB_LIST,98,32,178,122,LBS_SORT | LBS_MULTIPLESEL | LBS_OWNERDRAWVARIABLE | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CTEXT           "Max threads",IDC_MAX_THREADS_STATIC,113,163,46,8
+    COMBOBOX        IDC_MAX_THREADS_COMBO,165,161,47,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Job Options",IDC_JOB_GROUP_CTRL,291,7,280,81
+    CTEXT           "Log File",IDC_JOB_LOG_STATIC,301,22,217,8,SS_CENTERIMAGE
+    PUSHBUTTON      "View",IDC_VIEW_LOG_BUTTON,523,31,35,14
+    LTEXT           "Mode",IDC_CRITERIA_STATIC,301,57,25,8
+    COMBOBOX        IDC_JOB_MODE_COMBO,328,54,40,62,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Summary log",IDC_JOB_LOG_SUMMARY_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,375,49,60,10
+    CONTROL         "Log folders",IDC_JOB_LOG_SYNC_DIR_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,439,49,51,10
+    CONTROL         "Log skipped",IDC_JOB_LOG_SKIP_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,496,49,54,10
+    CONTROL         "Popup errors",IDC_JOB_ERROR_POPUP_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,375,60,60,10
+    CONTROL         "Verify write",IDC_JOB_VERIFY_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,439,60,51,10
+    CONTROL         "Append log",IDC_JOB_LOG_APPEND_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,496,60,59,10
+    GROUPBOX        "Progress Indicators",IDC_STATIC_PROGRESS_GROUP,292,91,279,74
+    LTEXT           "Active threads:",IDC_STATIC,298,99,53,8,SS_CENTERIMAGE
+    LTEXT           "Xfer:",IDC_STATIC,299,150,16,8
+    CTEXT           "0",IDC_XFER_STATIC,319,150,47,8
+    LTEXT           "Elapsed:",IDC_STATIC,372,150,29,8
+    CTEXT           "Skipped",IDC_STATIC,330,110,41,8
+    CTEXT           "Created",IDC_STATIC,380,110,41,8
+    CTEXT           "Updated",IDC_STATIC,431,110,41,8
+    CTEXT           "Deleted",IDC_STATIC,483,110,41,8
+    CTEXT           "Errors",IDC_STATIC,534,110,22,8
+    LTEXT           "Bytes",IDC_STATIC,298,119,25,8
+    CTEXT           "0",IDC_BYTES_BYPASSED_STATIC,330,119,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_BYTES_COPIED_STATIC,380,119,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_BYTES_UPDATED_STATIC,431,119,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_BYTES_DELETED_STATIC,483,119,41,8,SS_CENTERIMAGE | WS_DISABLED
+    LTEXT           "Files",IDC_STATIC,298,129,22,8
+    CTEXT           "0",IDC_FILE_BYPASSED_STATIC,330,129,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_FILE_COPIED_STATIC,380,129,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_FILE_UPDATED_STATIC,431,129,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_FILE_DELETED_STATIC,483,129,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_FILE_ERRORS_STATIC,534,129,22,8,SS_CENTERIMAGE | WS_DISABLED
+    LTEXT           "Folders",IDC_STATIC,298,139,36,8
+    CTEXT           "0",IDC_DIR_COPIED_STATIC,380,139,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "0",IDC_DIR_DELETED_STATIC,483,139,41,8,SS_CENTERIMAGE | WS_DISABLED
+    CTEXT           "Status",IDC_LED_STATIC,305,192,33,8
+    ICON            IDI_LED_GREEN,IDC_LED_ICON_STATIC,311,170,20,20,SS_CENTERIMAGE | SS_REALSIZEIMAGE
+    ICON            IDI_SIG_ICON,IDC_INSYNC_STATIC,365,170,20,20,SS_NOTIFY | SS_REALSIZEIMAGE
+    ICON            IDI_INSYNC_ICON,IDC_MANDALA_STATIC,458,170,20,20,SS_NOTIFY | SS_REALSIZEIMAGE
+    PUSHBUTTON      "Help",IDHELP,504,174,58,14,BS_CENTER | BS_VCENTER
+    CTEXT           "Copyright (C) Dillobits Software",IDC_COPYRIGHT_STATIC,7,212,564,12,SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         "",IDC_RUNNING_THREADS_PROGRESS,"msctls_progress32",PBS_SMOOTH | PBS_SMOOTHREVERSE,354,100,32,6
+    CONTROL         "Prompt before Running",IDC_JOB_PROMPT_BEFORE_RUNNING_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,375,73,88,10
+    CONTROL         "Turn off tips",IDC_TIPS_OFF_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,221,162,53,10
+    LTEXT           "Config:",IDC_STATIC,16,18,23,8
+    CONTROL         "",IDC_JOB_LOG_EDIT,"MfcEditBrowse",WS_BORDER | WS_TABSTOP | 0x80,301,31,221,14
+    CONTROL         "Debug log",IDC_VERBOSE_LOG_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,496,73,54,10
+    LTEXT           "00:00:00",IDC_ELAPSED_STATIC,412,150,32,8
+    COMBOBOX        IDC_END_OF_RUN_COMBO,165,182,47,30,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "End of run action",IDC_END_OF_RUN_STATIC,104,184,55,8,WS_DISABLED
+END
+
+IDD_JOB_EDIT_DIALOG DIALOGEX 0, 0, 477, 238
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "InSync Job Definition"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    CTEXT           "Job name",IDC_STATIC,7,15,21,8
+    EDITTEXT        IDC_JOB_NAME_EDIT,32,13,204,12,ES_AUTOHSCROLL
+    GROUPBOX        "Source Folders",IDC_SRC_GROUP_STATIC,7,34,228,194,WS_GROUP
+    LISTBOX         IDC_SRC_DIR_LIST,18,44,155,54,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Add",IDC_ADD_SRC_BUTTON,179,44,45,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Change",IDC_CHANGE_SRC_BUTTON,179,64,45,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Remove",IDC_REMOVE_SRC_BUTTON,179,84,45,14,BS_CENTER | BS_VCENTER
+    CONTROL         "Sub-folders",IDC_SUBDIRS_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,18,105,53,10
+    CONTROL         "Use Volume Names",IDC_SRC_VOL_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,18,121,76,10
+    GROUPBOX        "File filters",IDC_SRC_FILTER_GRP,18,136,208,42,WS_GROUP
+    CTEXT           "Include",IDC_SRC_INCL_STATIC,21,149,33,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_SRC_INCL_EDIT,59,147,157,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
+    CTEXT           "Exclude",IDC_SRC_EXCL_STATIC,21,162,33,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_SRC_EXCL_EDIT,59,160,157,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Excluded folders",IDC_SRC_EXCLUDED_DIR_BUTTON,117,119,76,14,BS_CENTER | BS_VCENTER
+    GROUPBOX        "Target Folders",IDC_TRG_GROUP_STATIC,241,33,227,154,WS_GROUP
+    LISTBOX         IDC_TRG_DIR_LIST,252,44,155,54,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Add",IDC_ADD_TRG_BUTTON,412,44,45,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Change",IDC_CHANGE_TRG_BUTTON,412,64,45,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Remove",IDC_REMOVE_TRG_BUTTON,412,84,45,14,BS_CENTER | BS_VCENTER
+    CONTROL         "Use Volume Names",IDC_TRG_VOL_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,253,121,76,10
+    GROUPBOX        "File filters",IDC_TRG_FILTER_GRP,251,136,206,40,WS_GROUP
+    CTEXT           "Include",IDC_TRG_INCL_STATIC,255,149,33,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_TRG_INCL_EDIT,293,147,157,12,ES_AUTOHSCROLL
+    CTEXT           "Exclude",IDC_TRG_EXCL_STATIC,255,162,33,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_TRG_EXCL_EDIT,293,160,157,12,ES_AUTOHSCROLL
+    ICON            IDI_SIG_ICON,IDC_INSYNC_STATIC,245,208,20,20,SS_REALSIZEIMAGE
+    ICON            IDI_INSYNC_ICON,IDC_MANDALA_STATIC,325,208,20,20,SS_REALSIZEIMAGE
+    PUSHBUTTON      "Help",IDHELP,369,214,47,14
+    DEFPUSHBUTTON   "Save",IDOK,421,214,47,14
+    COMBOBOX        IDC_COPY_ACLS_COMBO,315,13,140,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Copy NTFS security",IDC_STATIC,244,15,65,8
+    CONTROL         "Don't delete excluded items",IDC_DONT_DELETE_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,341,121,115,10
+    LISTBOX         IDC_RUN_AFTER_LIST,18,191,208,30,LBS_SORT | LBS_MULTIPLESEL | LBS_OWNERDRAWVARIABLE | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Run after job(s):",IDC_STATIC,18,180,99,8
+END
+
+IDD_EXCLUDED_DIRECTORIES_DIALOG DIALOGEX 0, 0, 258, 102
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Excluded Folders"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_EXCLUDED_DIRECTORY_LIST,7,7,244,69,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Add",IDC_ADD_BUTTON,7,81,50,14
+    PUSHBUTTON      "Remove",IDC_REMOVE_BUTTON,62,81,50,14
+    DEFPUSHBUTTON   "Save",IDOK,201,81,50,14
+END
+
+IDD_SCHEDULE_DIALOG DIALOGEX 0, 0, 259, 135
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "InSync Schedule"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Folder Synchronization Scheduled Events",-1,7,7,245,120
+    LISTBOX         IDC_EVENT_LIST,17,19,142,98,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add Event...",IDC_ADD_EVENT_BUTTON,171,19,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Edit Event...",IDC_EDIT_EVENT_BUTTON,171,34,72,14,BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "Remove Event",IDC_REMOVE_EVENT_BUTTON,171,49,72,14,BS_CENTER | BS_VCENTER
+    ICON            IDI_INSYNC_ICON,IDC_MANDALA_STATIC,195,68,32,32,SS_REALSIZEIMAGE
+    PUSHBUTTON      "Help",IDHELP,171,103,72,14,BS_CENTER | BS_VCENTER
+END
+
+IDD_EVENT_DIALOG DIALOGEX 0, 0, 362, 210
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "InSync Scheduler Event"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        "Job Selections for Event",IDC_STATIC,7,6,164,152
+    LISTBOX         IDC_EVENT_JOB_LIST,17,19,142,130,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CONTROL         "Once",IDC_ONCE_RADIO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,177,29,41,10
+    CONTROL         "Daily",IDC_DAYLY_RADIO,"Button",BS_AUTORADIOBUTTON,177,47,41,10
+    CONTROL         "Weekly",IDC_WEEKLY_RADIO,"Button",BS_AUTORADIOBUTTON,177,65,41,10
+    CONTROL         "Monthly",IDC_MONTHLY_RADIO,"Button",BS_AUTORADIOBUTTON,177,83,41,10
+    CONTROL         "Startup",IDC_STARTUP_RADIO,"Button",BS_AUTORADIOBUTTON,177,101,39,10
+    ICON            IDI_INSYNC_ICON,IDC_MANDALA_STATIC,187,122,32,32,SS_REALSIZEIMAGE | WS_GROUP
+    CTEXT           "Event Name",IDC_STATIC,230,15,116,8
+    EDITTEXT        IDC_EVENT_NAME_EDIT,230,25,116,12,ES_AUTOHSCROLL
+    CTEXT           "Start Date",IDC_STATIC,230,39,58,8
+    CTEXT           "Start Time",IDC_STATIC,289,39,58,8
+    CONTROL         "",IDC_START_DATE_DATETIMEPICKER,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,230,49,58,12
+    CONTROL         "",IDC_START_TIME_DATETIMEPICKER,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP,289,49,58,12
+    CTEXT           "End Date",IDC_END_DATE_STATIC,234,64,58,8
+    CONTROL         "",IDC_END_DATE_DATETIMEPICKER,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,230,73,58,12
+    CTEXT           "Windows Account",IDC_USER_NAME_STATIC,230,87,116,8
+    EDITTEXT        IDC_USER_NAME_EDIT,230,97,116,12,ES_AUTOHSCROLL
+    CTEXT           "Windows Password",IDC_USER_PASSWORD_STATIC,230,111,116,8
+    EDITTEXT        IDC_USER_PASSWORD_EDIT,230,121,116,12,ES_PASSWORD | ES_AUTOHSCROLL
+    CTEXT           "Additional parameters",IDC_STATIC,230,135,116,8
+    EDITTEXT        IDC_PARAMETERS_EDIT,230,145,116,12,ES_AUTOHSCROLL
+    CTEXT           "Comment",IDC_COMMENT_STATIC,17,160,142,8
+    EDITTEXT        IDC_COMMENT_EDIT,18,170,182,25,ES_MULTILINE | ES_AUTOHSCROLL
+    CONTROL         "Delete expired event",IDC_AUTO_DELETE_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,230,166,116,10
+    PUSHBUTTON      "Help",IDHELP,231,181,50,14,BS_CENTER | BS_VCENTER
+    DEFPUSHBUTTON   "Save",IDOK,297,181,50,14,BS_CENTER | BS_VCENTER
+    CONTROL         "Has end date",IDC_HAS_END_DATE_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,289,74,59,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 15,0,14,0
+ PRODUCTVERSION 15,0,14,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x0L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "InSync Application"
+            VALUE "CompanyName", "Dillobits Software"
+            VALUE "FileDescription", "InSync Application"
+            VALUE "FileVersion", "15.0.14.0"
+            VALUE "InternalName", "InSync"
+            VALUE "LegalCopyright", "Dillobits Software 2014"
+            VALUE "OriginalFilename", "InSync.EXE"
+            VALUE "ProductName", "InSync"
+            VALUE "ProductVersion", "15.0.14.0"
+            VALUE "SpecialBuild", "0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_INSYNC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 571
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+
+    IDD_JOB_EDIT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 468
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 228
+    END
+
+    IDD_EXCLUDED_DIRECTORIES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_SCHEDULE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_EVENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 355
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 203
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_INSYNC_DIALOG DLGINIT
+BEGIN
+    IDC_JOB_LOG_EDIT, 0x37c, 42, 0
+0x4d3c, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 0x4d5f, 0x646f, 
+0x3e65, 0x3c31, 0x4d2f, 0x4346, 0x6445, 0x7469, 0x7242, 0x776f, 0x6573, 
+0x4d5f, 0x646f, 0x3e65, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_INSYNC_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_JOB_EDIT_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+//****************************************************************************//// Copyright (c) 1998-2014 Dillobits Software Inc.//// This program is the proprietary software of Dillobits Software and/or its// licensors, and may only be used, duplicated, modified or distributed// pursuant to the terms and conditions of a separate, written license// agreement executed between you and Dillobits Software (an 'Authorized// License'). Except as set forth in an Authorized License, Dillobits Software// grants no license (express or implied), right to use, or waiver of any kind// with respect to the Software, and Dillobits Software expressly reserves all// rights in and to the Software and all intellectual property rights therein.// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND// DISCONTINUE ALL USE OF THE SOFTWARE.////****************************************************************************
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#endif
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

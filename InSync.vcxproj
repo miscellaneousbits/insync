@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|x64">
+      <Configuration>Template</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B7A0F7FE-02E3-44F3-BB13-9D5E01E51DF1}</ProjectGuid>
+    <RootNamespace>insync</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EmbedManifest>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EmbedManifest>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">c:\Temp\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">c:\Temp\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</PostBuildEventUseInBuild>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|x64'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>c:\Temp\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\x64\</OutDir>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <IntDir>c:\Temp\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\x64\</OutDir>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>c:\Temp\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\x86\</OutDir>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <IntDir>c:\Temp\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\x86\</OutDir>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\x86\</OutDir>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Configuration)\x64\</OutDir>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/InSync.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/Zm115 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <OmitFramePointers>false</OmitFramePointers>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)InSync.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)InSync.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <ShowIncludes>false</ShowIncludes>
+      <EnablePREfast>false</EnablePREfast>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <ErrorReporting>None</ErrorReporting>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /FIXED:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)insync.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)InSync.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)InSync.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Debug/InSync.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <OmitFramePointers>false</OmitFramePointers>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)InSync.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)InSync.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <EnablePREfast>false</EnablePREfast>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:X64 /FIXED:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)insync.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)InSync.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)InSync.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+      <MinimumRequiredVersion>5.2</MinimumRequiredVersion>
+      <ImageHasSafeExceptionHandlers>
+      </ImageHasSafeExceptionHandlers>
+      <SectionAlignment>
+      </SectionAlignment>
+    </Link>
+    <MASM>
+      <EnableAssemblyGeneratedCodeListing>true</EnableAssemblyGeneratedCodeListing>
+    </MASM>
+    <MASM>
+      <AssembledCodeListingFile>$(IntDir)%(FileName).lst</AssembledCodeListingFile>
+    </MASM>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>$(OutDir)InSync.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <StringPooling>true</StringPooling>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)InSync.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)InSync.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <CreateHotpatchableImage>false</CreateHotpatchableImage>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /FIXED:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)insync.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)InSync.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)InSync.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <SetChecksum>true</SetChecksum>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SectionAlignment>
+      </SectionAlignment>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>$(OutDir)InSync.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <StringPooling>true</StringPooling>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)InSync.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)InSync.pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <CreateHotpatchableImage>false</CreateHotpatchableImage>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <AdditionalOptions>/GL %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:AMD64 /FIXED:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)insync.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)InSync.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)InSync.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <SetChecksum>true</SetChecksum>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+      <SectionAlignment>
+      </SectionAlignment>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <ClCompile>
+      <ErrorReporting>None</ErrorReporting>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <ClCompile>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>$(ProjectDir)Insync.manifest.xml %(AdditionalManifestFiles)</AdditionalManifestFiles>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <OutputManifestFile>outputman.xml</OutputManifestFile>
+    </Manifest>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CmdLnInfo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ComboBox.cpp" />
+    <ClCompile Include="DirListBox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ExcludedDirectoriesDlg.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="FilePath.cpp" />
+    <ClCompile Include="InSync.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="InsyncButton.cpp" />
+    <ClCompile Include="InsyncCheckbox.cpp" />
+    <ClCompile Include="InsyncDlg.cpp" />
+    <ClCompile Include="InsyncListbox.cpp" />
+    <ClCompile Include="JobDialog.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="JobNode.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MainDlg.cpp" />
+    <ClCompile Include="Merge.cpp" />
+    <ClCompile Include="Run.cpp" />
+    <ClCompile Include="ScheduledTask.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SchedulerDialog.cpp" />
+    <ClCompile Include="SchedulerEvent.cpp" />
+    <ClCompile Include="SrcNode.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ToolTipCtrl.cpp" />
+    <ClCompile Include="TrgNode.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Util.cpp" />
+    <ClCompile Include="Versioninfo.cpp" />
+    <ClCompile Include="VssHelper.cpp" />
+    <ClCompile Include="Worker.cpp" />
+    <ClCompile Include="XML.cpp" />
+    <ClCompile Include="XMLOptions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ico\abort.ico" />
+    <None Include="ico\add.ico" />
+    <None Include="ico\clone.ico" />
+    <None Include="ico\dillo.ico" />
+    <None Include="ico\edit.ico" />
+    <None Include="ico\exclude.ico" />
+    <None Include="ico\green.ico" />
+    <None Include="ico\help.ico" />
+    <None Include="ico\insync.ico" />
+    <None Include="ico\insync000.ico" />
+    <None Include="ico\insync020.ico" />
+    <None Include="ico\insync040.ico" />
+    <None Include="ico\insync060.ico" />
+    <None Include="ico\insync080.ico" />
+    <None Include="ico\insync100.ico" />
+    <None Include="ico\insync120.ico" />
+    <None Include="ico\insync140.ico" />
+    <None Include="ico\insync160.ico" />
+    <None Include="ico\insync180.ico" />
+    <None Include="ico\insync200.ico" />
+    <None Include="ico\insync220.ico" />
+    <None Include="ico\insync240.ico" />
+    <None Include="ico\insync260.ico" />
+    <None Include="ico\insync280.ico" />
+    <None Include="ico\insync300.ico" />
+    <None Include="ico\insync320.ico" />
+    <None Include="ico\insync340.ico" />
+    <None Include="ico\insyncsig.ico" />
+    <None Include="ico\recycle.ico" />
+    <None Include="ico\red.ico" />
+    <None Include="ico\remove.ico" />
+    <None Include="ico\run.ico" />
+    <None Include="ico\save.ico" />
+    <None Include="ico\schedule.ico" />
+    <None Include="ico\simulate.ico" />
+    <None Include="ico\view.ico" />
+    <None Include="ico\yellow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CmdLnInfo.h" />
+    <ClInclude Include="ComboBox.h" />
+    <ClInclude Include="DataTypes.h" />
+    <ClInclude Include="DirListBox.h" />
+    <ClInclude Include="ExcludedDirectoriesDlg.h" />
+    <ClInclude Include="FilePath.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="HelpContext.h" />
+    <ClInclude Include="InSync.h" />
+    <ClInclude Include="InsyncButton.h" />
+    <ClInclude Include="InsyncCheckbox.h" />
+    <ClInclude Include="InsyncDlg.h" />
+    <ClInclude Include="InsyncListbox.h" />
+    <ClInclude Include="JobDialog.h" />
+    <ClInclude Include="MainDlg.h" />
+    <ClInclude Include="Nodes.h" />
+    <ClInclude Include="ScopedLock.h" />
+    <ClInclude Include="ToolTipCtrl.h" />
+    <CustomBuild Include="Resource.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Run.h" />
+    <ClInclude Include="ScheduledTask.h" />
+    <ClInclude Include="SchedulerDialog.h" />
+    <ClInclude Include="SchedulerEvent.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Util.h" />
+    <ClInclude Include="Verification.h" />
+    <ClInclude Include="Versioninfo.h" />
+    <ClInclude Include="VssHelper.h" />
+    <ClInclude Include="Worker.h" />
+    <ClInclude Include="XML.h" />
+    <ClInclude Include="XMLOptions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insync.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Insync.manifest.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="insync.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  
+  <?define ProductName = "InSync" ?>
+  <?define ProductAuthor = "Dillobits Software" ?>
+  <?define ProductAppFolder = "InstallLocation" ?>
+  <?define ProductId = "BB609E57-DBFE-47EA-903F-75EEE944EDF8" ?>
+  <?define ComponentId = "CF5BC9CE-75A1-4458-9334-5251C143585D" ?>
+  <?define ProductUpgradeCode = "EE2511C1-75A7-4954-8AB6-0E405C9481B4" ?>
+
+  <?if $(var.Platform) = x64 ?>
+  <?define ProductDisplayName = "$(var.ProductName) $(var.ProductVersion) 64-bit" ?>
+  <?define Win64 = "yes" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?else ?>
+  <?define ProductDisplayName = "$(var.ProductName) $(var.ProductVersion) 32-bit" ?>
+  <?define Win64 = "no" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?endif ?>
+
+  <Product Id="$(var.ProductId)"
+           Name="$(var.ProductName) $(var.ProductVersion)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.ProductAuthor)"
+           UpgradeCode="ccf97c9e-b728-47a5-98af-1fef8727b262">
+		   
+    <Package InstallerVersion="400"
+             Compressed="yes"
+             InstallScope="perMachine"/>
+
+    <Media Id='1' Cabinet='insync.cab' EmbedCab='yes' CompressionLevel="high" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Feature Id="ProductFeature" Title="WixSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+    </Feature>
+
+    <Condition Message="This application is only supported on Windows Vista, Windows Server 2008, or higher.">
+      <![CDATA[Installed OR (VersionNT >= 600)]]>
+    </Condition>
+    <?if $(var.Platform) = x64 ?>
+    <Condition Message="This application is only supported on 64-bit Windows.">
+      <![CDATA[Installed OR VersionNT64]]>
+    </Condition>
+    <?else ?>
+    <Condition Message="This application is only supported on 32-bit Windows.">
+      <![CDATA[Installed OR (NOT VersionNT64)]]>
+    </Condition>
+    <?endif ?>
+    
+    <Icon Id="icon.ico" SourceFile="$(var.InSync.TargetPath)"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+    
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.SolutionDir)\WixSetup\eula.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.SolutionDir)\WixSetup\banner.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.SolutionDir)\WixSetup\background.jpg" />
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="0AE168B3-4291-4B5A-A913-4CF130C8010F" >
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="InSync"
+                  Description="InSync"
+                  Target="[!insync.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"
+                  Icon ="icon.ico" />
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\Dillobits Software\InSync" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="268B1AF0-A823-46F1-B803-91B050868640">
+        <Shortcut Id="ApplicationDesktopShortcut"
+                  Name="Run InSync"
+                  Description="InSync"
+                  Target="[INSTALLFOLDER]insync.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon ="icon.ico" />
+        <Shortcut Id="ApplicationHelpDesktopShortcut"
+                  Name="InSync Help"
+                  Description="InSync Help"
+                  Target="[INSTALLFOLDER]insync.chm"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon ="icon.ico" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\Dillobits Software\InSync" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+  </Product>
+
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)" >
+        <Directory Id="AUTHORFOLDER" Name="$(var.ProductAuthor)" >
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="InSync" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="ProductComponent" Guid="$(var.ComponentId)">
+				<File  Id='insync.chm' Name='insync.chm' Source='$(var.SolutionDir)\HelpManual\insync.chm' />
+				<File  Id='insync.exe' Name='insync.exe' Source='$(var.InSync.TargetPath)'  KeyPath="yes" Checksum="yes" />
+				<ProgId Id='insync.isyfile' Description='insync job file'>
+				  <Extension Id='isy' ContentType='application/isy'>
+					 <Verb Id='open' Command='Open' TargetFile='insync.exe' Argument='"%1"' />
+				  </Extension>
+				</ProgId>
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
