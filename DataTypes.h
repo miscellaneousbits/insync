@@ -1,21 +1,4 @@
 #pragma once
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
 
 typedef enum RunModes {
     FROMPARENT = 0,
@@ -32,7 +15,8 @@ const DWORD kFILE_ATTRIBUTE_SETABLE =
      FILE_ATTRIBUTE_NOT_CONTENT_INDEXED | FILE_ATTRIBUTE_OFFLINE | \
      FILE_ATTRIBUTE_READONLY | FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_TEMPORARY);
 
-class CFileData {
+class CFileData
+{
 
 public:
     CFileData(const WIN32_FIND_DATA &);
@@ -55,7 +39,8 @@ typedef StrList::iterator StrListIter;
 typedef StrList::const_iterator ConstStrListIter;
 
 struct CStrCompare {
-    bool operator()(const CString &x, const CString &y) const {
+    bool operator()(const CString &x, const CString &y) const
+    {
         return CString(x).MakeUpper() < CString(y).MakeUpper();
     }
 };
@@ -64,7 +49,8 @@ typedef set<CString, CStrCompare, std::allocator<int>> StrSet;
 typedef StrSet::iterator StrSetIter;
 typedef StrSet::const_iterator ConstStrSetIter;
 
-class CCounts {
+class CCounts
+{
 public:
     void Clear();
 

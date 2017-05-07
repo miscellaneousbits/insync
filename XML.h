@@ -1,21 +1,4 @@
 #pragma once
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
 
 #pragma warning(disable:4192)
 #import "msxml3.dll"
@@ -30,7 +13,8 @@ class CXmlNodes;
 typedef std::auto_ptr<CXmlNode>  CXmlNodePtr;
 typedef std::auto_ptr<CXmlNodes>  CXmlNodesPtr;
 
-class CXmlNode {
+class CXmlNode
+{
     friend class CXml;
     friend class CXmlNode;
     friend class CXmlNodes;
@@ -67,7 +51,8 @@ private:
     CXmlNode &operator = (const CXmlNode &refNode);
 };
 
-class CXmlNodes {
+class CXmlNodes
+{
     friend class CXml;
     friend class CXmlNode;
     friend class CXmlNodes;
@@ -84,7 +69,8 @@ protected:
 
 };
 
-class CXml {
+class CXml
+{
 public:
     CXml();
     ~CXml();

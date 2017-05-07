@@ -1,5 +1,7 @@
 #pragma once
-class CXmlOptions {
+
+class CXmlOptions
+{
 public:
     bool LoadXMLOptions();
     bool SaveXMLOptions();

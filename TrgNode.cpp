@@ -1,24 +1,7 @@
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
-
 #include "stdafx.h"
 
-DWORD TrgThread(LPVOID pParam) {
+DWORD TrgThread(LPVOID pParam)
+{
     return ((CTrgNode *)pParam)->CTrgThread();
 }
 
@@ -33,17 +16,20 @@ CTrgNode::CTrgNode(CJobNode *parentJob, CSrcNode *parentSrc) :
     m_dontDelete(true),
     m_includes(NULL),
     m_excludes(NULL),
-    m_reasonCode(0) {
-	m_parentJob = parentJob;
-	m_parentSrc = parentSrc;
+    m_reasonCode(0)
+{
+    m_parentJob = parentJob;
+    m_parentSrc = parentSrc;
     m_run = &CRun::Singleton();
 }
 
 CTrgNode::CTrgNode(const CTrgNode &node) :
-    CExecutableWithInclude(node) {
+    CExecutableWithInclude(node)
+{
     if (&node == this) {
         return;
     }
+
     m_name = node.m_name;
     m_fatal = NULL;
     m_parentJob = node.m_parentJob;
@@ -60,52 +46,64 @@ CTrgNode::CTrgNode(const CTrgNode &node) :
     m_run = node.m_run;
 }
 
-bool CTrgNode::operator ==(const CTrgNode &n) const {
+bool CTrgNode::operator ==(const CTrgNode &n) const
+{
     if (this == &n) {
         return true;
     }
+
     return this->m_name == n.m_name;
 }
 
-int CTrgNode::GetReasonCode() {
+int CTrgNode::GetReasonCode()
+{
     int r = m_reasonCode;
     m_reasonCode = 0;
     return r;
 }
 
-UINT CTrgNode::CTrgThread() {
+UINT CTrgNode::CTrgThread()
+{
     m_fileErrors = 0;
 
     m_threadVerify = m_parentJob->m_ioVerify;
 
     CString incl = m_parentSrc->m_include;
+
     if (m_include.GetLength()) {
         incl = m_include;
     }
+
     CString excl = m_parentSrc->m_exclude;
+
     if (m_exclude.GetLength()) {
         excl = m_exclude;
     }
+
     bool errPopup = m_parentJob->m_errPopup;
     m_fatal = NULL;
     m_simulate = InSyncApp.m_simulate;
     m_subDir = m_parentSrc->m_subdir;
     m_excludedFolders.clear();
     m_effectiveMode = m_parentJob->m_mode;
+
     switch (m_effectiveMode) {
     case MIRROR_SYNC_MODE:
         FileInBoth = &CTrgNode::MirrorFileInBoth;
         DirInBoth = &CTrgNode::MirrorDirInBoth;
         break;
+
     case TWOWAY_SYNC_MODE:
         FileInBoth = &CTrgNode::TwoWayFileInBoth;
         DirInBoth = &CTrgNode::TwoWayDirInBoth;
         break;
+
     case BACKUP_SYNC_MODE:
         FileInBoth = &CTrgNode::BackupFileInBoth;
         DirInBoth = &CTrgNode::BackupDirInBoth;
         break;
     }
+
     CString parentName(m_parentSrc->m_name);
     CString name(m_name);
     bool fromFound, toFound;
@@ -118,7 +116,9 @@ UINT CTrgNode::CTrgThread() {
     ConstStrSetIter f;
     CString exclMsg;
     bool someExcl = false;
-    for (f = m_parentSrc->m_excludedSrcDirList.begin(); f != m_parentSrc->m_excludedSrcDirList.end(); ++f) {
+
+    for (f = m_parentSrc->m_excludedSrcDirList.begin(); f != m_parentSrc->m_excludedSrcDirList.end();
+         ++f) {
         CString s(*f);
         someExcl = true;
         exclMsg += _T(" ");
@@ -126,15 +126,19 @@ UINT CTrgNode::CTrgThread() {
         ReplaceVolumeName(s);
         m_excludedFolders.insert(s);
     }
+
     {
         CTrgScopedLogLock lock(this, kLOGALWAYS);
         m_parentJob->WriteToLogVSNewLine(m, NULL);
+
         if (fromMsg.GetLength()) {
             m_parentJob->WriteToLogVSNewLine(fromMsg, NULL);
         }
+
         if (toMsg.GetLength()) {
             m_parentJob->WriteToLogVSNewLine(toMsg, NULL);
         }
+
         if (someExcl) {
             exclMsg = CString(_T("Excluded folders:")) + exclMsg;
             m_parentJob->WriteToLogVSNewLine(exclMsg, NULL);
@@ -144,40 +148,50 @@ UINT CTrgNode::CTrgThread() {
 
     do {
         ::SetLastError(ERROR_NOT_READY);
+
         if (!fromFound) {
             FatalError(_T("Unable to find source folder volume"));
             break;
         }
+
         if (!toFound) {
             FatalError(_T("Unable to find target folder volume"));
             break;
         }
+
         ::SetLastError(ERROR_SUCCESS);
         CFilePath toDir(name), fromDir(parentName);
+
         if (incl)
             if (_tcslen(incl)) {
                 m_includes = ParseIncludeExcludeString((LPCTSTR)incl);
+
                 if (m_includes == NULL) {
                     CString msg;
-                    msg.Format(_T("Invalid include specification \"%s\" encountered. Include specification ignored."), (LPCTSTR)incl);
+                    msg.Format(_T("Invalid include specification \"%s\" encountered. Include specification ignored."),
+                               (LPCTSTR)incl);
                     CMainDlg::Singleton().InSyncMessageBox(true, msg, MB_ICONERROR | MB_OK);
                 }
             }
+
         if (excl)
             if (_tcslen(excl)) {
                 m_excludes = ParseIncludeExcludeString((LPCTSTR)excl);
+
                 if (m_excludes == NULL) {
                     CString msg;
-                    msg.Format(_T("Invalid exclude specification \"%s\" encountered. Exclude specification ignored."), (LPCTSTR)excl);
+                    msg.Format(_T("Invalid exclude specification \"%s\" encountered. Exclude specification ignored."),
+                               (LPCTSTR)excl);
                     CMainDlg::Singleton().InSyncMessageBox(true, msg, MB_ICONERROR | MB_OK);
                 }
             }
+
         bool toExists = true;
+
         if (!PathIsDirectory(toDir.UNC())) {
             if (m_simulate) {
                 toExists = false;
-            }
-            else {
+            } else {
                 // Try to create target folder
                 if (!::CreateDirectory(toDir.UNC(), NULL)) {
                     FatalError(_T("Unable to find or create target folder"));
@@ -185,61 +199,70 @@ UINT CTrgNode::CTrgThread() {
                 }
             }
         }
+
         bool fromExists = true;
+
         if (!PathIsDirectory(fromDir.UNC())) {
             if (m_simulate) {
                 fromExists = false;
-            }
-            else {
+            } else {
                 FatalError(_T("Unable to find source folder"));
                 break;
             }
         }
+
         m_supportsPermissions = SupportsPermissions(fromDir.UNC()) && SupportsPermissions(toDir.UNC());
 
         if (!ExcludedFolder(fromDir)) {
             m_doneEvent = ::CreateEvent(NULL, FALSE, FALSE, NULL);
+
             if (m_doneEvent) {
                 m_pendingTasks = 0;
                 CRun::Singleton().ScheduleBackupOrSync(fromDir, toDir, fromExists, toExists, this);
                 ::WaitForSingleObject(m_doneEvent, INFINITE);
                 CloseHandle(m_doneEvent);
                 m_doneEvent = NULL;
-            }
-            else {
+            } else {
                 FatalError(_T("Unable to create termination event"));
                 break;
             }
         }
+
         m_excludedFolders.clear();
+
         if (m_includes) {
             delete m_includes;
         }
+
         if (m_excludes) {
             delete m_excludes;
         }
-    }
-    while (false);
+    } while (false);
 
     if (errPopup && m_fatal) {
         InSyncApp.AppRC(kINSYNC_JOB_ERROR);
         CMainDlg::Singleton().InSyncMessageBox(false, m_fatal, MB_ICONERROR | MB_OK);
     }
+
     if (m_fatal) {
         delete [] m_fatal;
         m_fatal = NULL;
     }
+
     if (m_fileErrors) {
         InSyncApp.AppRC(kINSYNC_FILE_ERROR);
+
         if (errPopup) {
-            m_parentJob->NonFatalTaskError(false, _T("File errors occured"), m_parentJob->m_name, parentName, name);
+            m_parentJob->NonFatalTaskError(false, _T("File errors occured"), m_parentJob->m_name, parentName,
+                                           name);
         }
     }
 
     return 0;
 }
 
-bool CTrgNode::DeleteAFile(LPCTSTR file, LPCTSTR msg) {
+bool CTrgNode::DeleteAFile(LPCTSTR file, LPCTSTR msg)
+{
     if (!m_simulate) {
         if (!::DeleteFile(file)) {
             SetReasonCode(1);
@@ -247,16 +270,20 @@ bool CTrgNode::DeleteAFile(LPCTSTR file, LPCTSTR msg) {
             return false;
         }
     }
+
     return true;
 }
 
-bool CTrgNode::UnprotectAFile(LPCTSTR file, const DWORD attr, LPCTSTR msg) {
+bool CTrgNode::UnprotectAFile(LPCTSTR file, const DWORD attr, LPCTSTR msg)
+{
     if (!m_simulate) {
         if (attr & FILE_ATTRIBUTE_READONLY) {
             DWORD a = attr & (~FILE_ATTRIBUTE_READONLY);
+
             if (a == 0) {
                 a = FILE_ATTRIBUTE_NORMAL;
             }
+
             if (!::SetFileAttributes(file, a & kFILE_ATTRIBUTE_SETABLE)) {
                 SetReasonCode(2);
                 FileError(_T("setting attributes"), msg, true);
@@ -264,22 +291,28 @@ bool CTrgNode::UnprotectAFile(LPCTSTR file, const DWORD attr, LPCTSTR msg) {
             }
         }
     }
+
     return true;
 }
 
-void CTrgNode::FatalError(LPCTSTR msg) {
+void CTrgNode::FatalError(LPCTSTR msg)
+{
     LPVOID eMsg;
-    if (!::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL, ::GetLastError(),
+
+    if (!::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL,
+                         ::GetLastError(),
                          MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&eMsg, 0, NULL)) {
         eMsg = 0;
     }
+
     LPCTSTR eeMsg;
+
     if (eMsg) {
         eeMsg = (LPTSTR)eMsg;
-    }
-    else {
+    } else {
         eeMsg = kNullString;
     }
+
     size_t l = _tcslen(_T("Job ")) + _tcslen(m_parentJob->m_name) +
                _tcslen(_T(", Source ")) + _tcslen(m_parentSrc->m_name) +
                _tcslen(_T(", Destination ")) + _tcslen(m_name) +
@@ -302,13 +335,16 @@ void CTrgNode::FatalError(LPCTSTR msg) {
     }
     delete [] m_fatal;
     m_fatal = NULL;
+
     if (eMsg) {
         ::LocalFree(eMsg);
     }
+
     CMainDlg::Singleton().PostMessage(WM_USER_SET_LED, CMainDlg::LED_RED);
 }
 
-bool CTrgNode::AbortedByUser() {
+bool CTrgNode::AbortedByUser()
+{
     if (CMainDlg::Singleton().m_globalAbort) {
         if (m_parentJob->m_firstAbort) {
             m_parentJob->m_firstAbort = false;
@@ -332,21 +368,28 @@ bool CTrgNode::AbortedByUser() {
             m_fatal = NULL;
             CMainDlg::Singleton().PostMessage(WM_USER_SET_LED, CMainDlg::LED_RED);
         }
+
         return true;
     }
+
     return false;
 }
 
-void CTrgNode::FileErrorWithMessage(LPCTSTR msg, LPCTSTR fMsg, bool const fileNotFolder, const LPVOID eMsg,
-                                    const LPVOID reasonCode) {
+void CTrgNode::FileErrorWithMessage(LPCTSTR msg, LPCTSTR fMsg, bool const fileNotFolder,
+                                    const LPVOID eMsg,
+                                    const LPVOID reasonCode)
+{
     TCHAR fileOrDir[16];
     _tcscpy_s(fileOrDir, fileNotFolder ? _T(" file") : _T(" folder"));
     {
         CTrgScopedLogLock lock(this, kLOGALWAYS);
+
         if (fMsg) {
             m_parentJob->WriteToLogVSNewLine((LPTSTR)fMsg, NULL);
         }
-        m_parentJob->WriteToLogVS(_T("Job "), m_parentJob->m_name.GetBuffer(), _T(" - Error: "), msg, fileOrDir,
+
+        m_parentJob->WriteToLogVS(_T("Job "), m_parentJob->m_name.GetBuffer(), _T(" - Error: "), msg,
+                                  fileOrDir,
                                   _T(" - OS Return Code: "), eMsg,
                                   _T(" - Reason code: "), reasonCode,
                                   _T("\r\n"), NULL);
@@ -358,38 +401,47 @@ void CTrgNode::FileErrorWithMessage(LPCTSTR msg, LPCTSTR fMsg, bool const fileNo
     CMainDlg::Singleton().PostMessage(WM_USER_SET_LED, CMainDlg::LED_YELLOW);
 }
 
-void CTrgNode::VerifyError(LPCTSTR msg, LPCTSTR fMsg, const bool fileNotFolder) {
+void CTrgNode::VerifyError(LPCTSTR msg, LPCTSTR fMsg, const bool fileNotFolder)
+{
     LPCTSTR compError = _T("Compare failed");
     LPVOID eMsg = LocalAlloc(LMEM_FIXED, (_tcslen(compError) + 1) * sizeof(TCHAR));
+
     if (eMsg == NULL) {
         return;
     }
+
     _tcscpy_s((LPTSTR)eMsg, _tcslen(compError) + 1, compError);
     TCHAR reasonCode[16];
     _itot_s(GetReasonCode(), reasonCode, 10);
     FileErrorWithMessage(msg, fMsg, fileNotFolder, eMsg, reasonCode);
 }
 
-void CTrgNode::FileError(LPCTSTR msg, LPCTSTR fMsg, const bool fileNotFolder) {
+void CTrgNode::FileError(LPCTSTR msg, LPCTSTR fMsg, const bool fileNotFolder)
+{
     LPTSTR eMsg = NULL;
-    if (!::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL, ::GetLastError(),
+
+    if (!::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL,
+                         ::GetLastError(),
                          MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&eMsg, 0, NULL)) {
         LPCTSTR uError = _T("Unknown error");
         eMsg = (LPTSTR)LocalAlloc(LMEM_FIXED, (_tcslen(uError) + 1) * sizeof(TCHAR));
+
         if (eMsg == NULL) {
             return;
         }
+
         _tcscpy_s((LPTSTR)eMsg, _tcslen(uError) + 1, uError);
-    }
-    else {
+    } else {
         eMsg[_tcslen(eMsg) - 2] = 0;
     }
+
     TCHAR reasonCode[16];
     _itot_s(GetReasonCode(), reasonCode, 10);
     FileErrorWithMessage(msg, fMsg, fileNotFolder, eMsg, reasonCode);
 }
 
-void CTrgNode::NonFatalError(const bool dir, LPCTSTR msg) {
+void CTrgNode::NonFatalError(const bool dir, LPCTSTR msg)
+{
     LogFlagsType flags = kLOGALWAYS;
     flags.LogFlagFolder = dir;
     {
@@ -399,26 +451,36 @@ void CTrgNode::NonFatalError(const bool dir, LPCTSTR msg) {
     CMainDlg::Singleton().PostMessage(WM_USER_SET_LED, CMainDlg::LED_YELLOW);
 }
 
-bool CTrgNode::IncludedFile(LPCTSTR name) {
+bool CTrgNode::IncludedFile(LPCTSTR name)
+{
     StrListIter current;
+
     if (m_includes) {
         tr1::wcmatch res;
+
         if (tr1::regex_match(name, res, *m_includes)) {
             goto excludes;
         }
+
         return false;
     }
+
 excludes:
+
     if (m_excludes) {
         tr1::wcmatch res;
+
         if (tr1::regex_match(name, res, *m_excludes)) {
             return false;
         }
     }
+
     return true;
 }
 
-void CTrgNode::RenameTargetFileOrDirIfDifferent(const CFilePath &dir, const CFileData &to, const CFileData &from) {
+void CTrgNode::RenameTargetFileOrDirIfDifferent(const CFilePath &dir, const CFileData &to,
+        const CFileData &from)
+{
     if ((!m_simulate) && (_tcscmp(from.m_name, to.m_name))) {
         CString d = dir.UNC();
         CString fName;
@@ -430,17 +492,22 @@ void CTrgNode::RenameTargetFileOrDirIfDifferent(const CFilePath &dir, const CFil
     }
 }
 
-bool CTrgNode::IncludeFolder(const CFileData &from, const CFilePath &fromDir, const CFilePath &toDir, CFilePath &fName,
-                             CFilePath &tName) {
+bool CTrgNode::IncludeFolder(const CFileData &from, const CFilePath &fromDir,
+                             const CFilePath &toDir, CFilePath &fName,
+                             CFilePath &tName)
+{
     fName = fromDir;
     fName += from.m_name;
     tName = toDir;
     tName += from.m_name;
+
     if (ExcludedFolder(fName)) {
         return false;
     }
+
     CString m;
-    m.Format(_T("Synchronizing folder \"%s\" -> \"%s\""), (LPCTSTR)fName.Display(), (LPCTSTR)tName.Display());
+    m.Format(_T("Synchronizing folder \"%s\" -> \"%s\""), (LPCTSTR)fName.Display(),
+             (LPCTSTR)tName.Display());
     {
         CTrgScopedLogLock lock(this, kLOGFOLDER);
         m_parentJob->WriteToLogVSNewLine(m, NULL);
@@ -448,88 +515,111 @@ bool CTrgNode::IncludeFolder(const CFileData &from, const CFilePath &fromDir, co
     return true;
 }
 
-static CString InDir(LPTSTR excl, LPCTSTR dir) {
+static CString InDir(LPTSTR excl, LPCTSTR dir)
+{
     size_t l = _tcslen(dir);
+
     if (_tcslen(excl) <= l) {
         return CString();
     }
+
     LPCTSTR p;
     TCHAR c;
     c = excl[l];
+
     if (c != _T('\\')) {
         return CString();
     }
+
     excl[l] = 0;
+
     if (_tcsicmp(excl, dir)) {
         excl[l] = c;
         return CString();
     }
+
     excl[l] = c;
     p = excl + l + 1;
+
     if (_tcschr(p, _T('\\'))) {
         return CString();
     }
+
     return CString(p);
 }
 
 // comparison, not case sensitive.
-static bool CompareNocase(const CFileData &first, const CFileData &second) {
+static bool CompareNocase(const CFileData &first, const CFileData &second)
+{
     return first.m_name.CompareNoCase(second.m_name) < 0;
 }
 
 // a binary predicate implemented as a function:
-static bool Same(const CFileData &first, const CFileData &second) {
+static bool Same(const CFileData &first, const CFileData &second)
+{
     return first.m_name.CompareNoCase(second.m_name) == 0;
 }
 
 
-bool CTrgNode::ScanDir(FileDataList &fileList, FileDataList &dirList, const CFilePath &dir, const bool source) {
+bool CTrgNode::ScanDir(FileDataList &fileList, FileDataList &dirList, const CFilePath &dir,
+                       const bool source)
+{
     CString scanParm;
 
     if (AbortedByUser()) {
         return true;
     }
+
     // Add excluded folders here so we don't delete them if they actually don't exist in source
     if (source) {
         FilePathSetIter excl;
+
         for (excl = m_excludedFolders.begin(); excl != m_excludedFolders.end(); ++excl) {
             CString p = InDir(excl->Display().GetBuffer(), dir.Display());
+
             if (p.GetLength()) {
                 dirList.push_back(CFileData(p, FILE_ATTRIBUTE_DIRECTORY));
             }
         }
     }
+
     TCHAR msg[32];
     _tcscpy_s(msg, source ? _T("reading source") : _T("reading target"));
     scanParm = dir.Shadow() + (dir.NullSuffix() ? _T("*") : _T("\\*"));
     WIN32_FIND_DATA findData;
     HANDLE findHndl = FindFirstFile(scanParm, &findData);
+
     if (findHndl == INVALID_HANDLE_VALUE) {
         ULONG lastError = ::GetLastError();
+
         if ((lastError != ERROR_NO_MORE_FILES) && (lastError != ERROR_FILE_NOT_FOUND)) {
             FileError(msg, dir.Display(), false);
             return false;
         }
+
         return true;
     }
+
     while (true) {
         if (AbortedByUser()) {
             FindClose(findHndl);
             return true;
         }
+
         if ((_tcsicmp(findData.cFileName, _T(".")) != 0) && (_tcsicmp(findData.cFileName, _T("..")) != 0)) {
             if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
                 if (!((findData.dwFileAttributes & FILE_ATTRIBUTE_REPARSE_POINT) &&
                       IsReparseTagNameSurrogate(findData.dwReserved0))) {
                     dirList.push_back(findData);
                 }
-            }
-            else {
+            } else {
                 fileList.push_back(findData);
             }
         }
+
         if (FindNextFile(findHndl, &findData) == 0) {
             ULONG lastError = ::GetLastError();
+
             if ((lastError != ERROR_NO_MORE_FILES) &&
                 (lastError != ERROR_FILE_NOT_FOUND)) {
                 FindClose(findHndl);
@@ -537,67 +627,84 @@ bool CTrgNode::ScanDir(FileDataList &fileList, FileDataList &dirList, const CFil
                 FileError(msg, NULL, false);
                 return false;
             }
+
             break;
         }
     }
+
     FindClose(findHndl);
     dirList.sort(CompareNocase);
     fileList.sort(CompareNocase);
+
     // Need to remove duplicate folders that may have been inserted as excluded
     if (source) {
         dirList.unique(Same);
     }
+
     if (CMainDlg::Singleton().VerboseLog()) {
         CString logstr;
         logstr.Format(_T("Dir scan result for '%s':"), dir.Display().GetBuffer(0));
         FileDataList::iterator listPtr;
+
         for (listPtr = dirList.begin(); listPtr != dirList.end(); ++listPtr) {
             logstr += _T(" '");
             logstr += (*listPtr).m_name;
             logstr += _T("'");
         }
+
         {
             CTrgScopedLogLock lock(this, kLOGALWAYS);
             m_parentJob->WriteToLogVS(logstr, _T("\r\n"), NULL);
         }
+
         logstr.Format(_T("File scan result for '%s':"), dir.Display().GetBuffer());
+
         for (listPtr = fileList.begin(); listPtr != fileList.end(); ++listPtr) {
             logstr += _T(" '");
             logstr += (*listPtr).m_name;
             logstr += _T("'");
         }
+
         {
             CTrgScopedLogLock lock(this, kLOGALWAYS);
             m_parentJob->WriteToLogVS(logstr, _T("\r\n"), NULL);
         }
     }
+
     return true;
 }
 
-void CTrgNode::InitDesc(PFILEDESC desc) {
+void CTrgNode::InitDesc(PFILEDESC desc)
+{
     desc->fileLock = NULL;
     desc->h = INVALID_HANDLE_VALUE;
     desc->overlapped.hEvent = NULL;
 }
 
-bool CTrgNode::RemoveADirectory(LPCTSTR folder, LPCTSTR msg) {
+bool CTrgNode::RemoveADirectory(LPCTSTR folder, LPCTSTR msg)
+{
     bool rc = ::RemoveDirectory(folder) == TRUE;
+
     if (!rc) {
         SetReasonCode(3);
         FileError(_T("removing"), msg, false);
     }
+
     return rc;
 };
 
-void CTrgNode::SetReasonCode(const int r) {
+void CTrgNode::SetReasonCode(const int r)
+{
     m_reasonCode = r;
 }
 
-bool CTrgNode::ExcludedFolder(const CFilePath &path) {
+bool CTrgNode::ExcludedFolder(const CFilePath &path)
+{
     return m_excludedFolders.find(path) != m_excludedFolders.end();
 }
 
-CFileData::CFileData(const WIN32_FIND_DATA &f) {
+CFileData::CFileData(const WIN32_FIND_DATA &f)
+{
     m_fileAttributes = f.dwFileAttributes;
     m_creationTime = f.ftCreationTime;
     m_lastAccessTime = f.ftLastAccessTime;
@@ -606,7 +713,8 @@ CFileData::CFileData(const WIN32_FIND_DATA &f) {
     m_name = f.cFileName;
 }
 
-CFileData::CFileData(LPCTSTR f, const DWORD attr) {
+CFileData::CFileData(LPCTSTR f, const DWORD attr)
+{
     m_fileAttributes = attr;
     m_lastWriteTime =
         m_creationTime =
@@ -615,7 +723,8 @@ CFileData::CFileData(LPCTSTR f, const DWORD attr) {
     m_name = f;
 }
 
-CFileData::CFileData(const CFileData &f) {
+CFileData::CFileData(const CFileData &f)
+{
     m_fileAttributes = f.m_fileAttributes;
     m_lastWriteTime = f.m_lastWriteTime;
     m_creationTime = f.m_creationTime;
@@ -624,7 +733,8 @@ CFileData::CFileData(const CFileData &f) {
     m_name = f.m_name;
 }
 
-void CCounts::Clear() {
+void CCounts::Clear()
+{
     m_filesSkippedCount = 0;
     m_filesCopiedCount = 0;
     m_filesUpdatedCount = 0;

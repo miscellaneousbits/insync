@@ -1,0 +1,4 @@
+--style=knf
+--lineend=linux
+--indent=spaces=4
+--max-code-length=100

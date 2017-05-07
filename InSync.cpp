@@ -1,23 +1,4 @@
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
-
 #include "stdafx.h"
-
 
 LPCTSTR kInSyncFileType = _T("isy");
 LPCTSTR kInSyncName = _T("InSync");
@@ -43,7 +24,8 @@ CInSyncApp::CInSyncApp()
       m_globalAppData(false),
       m_optFileNameFromConfig(false),
       m_simulateParm(false),
-	  m_endJobAction(NoneAction) {
+      m_endJobAction(NoneAction)
+{
     EnableHtmlHelp();
 }
 
@@ -52,33 +34,42 @@ static int dpiY = 0;
 /////////////////////////////////////////////////////////////////////////////
 // CInSyncApp initialization
 
-static bool SetPrivilege(HANDLE hToken, LPCTSTR name) {
+static bool SetPrivilege(HANDLE hToken, LPCTSTR name)
+{
     TOKEN_PRIVILEGES tkp;
+
     // get the LUID for shutdown privilege.
     if (!::LookupPrivilegeValue(NULL, name, &tkp.Privileges[0].Luid))
         return false;
+
     tkp.PrivilegeCount = 1;  // one privilege to set
     tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
     // get shutdown privilege for this process.
     return B2b(::AdjustTokenPrivileges(hToken, FALSE, &tkp, 0, (PTOKEN_PRIVILEGES)NULL, 0));
 }
 
-BOOL CInSyncApp::InitInstance() {
+BOOL CInSyncApp::InitInstance()
+{
     m_currentProcess = ::GetCurrentProcess();
 
 #if 0
+
     // Not needed till mfc becomes per monotor DPI aware
     if (IsWindows8Point1OrGreater()) {
         HMODULE module = ::LoadLibrary(_T("Shcore.dll"));
+
         if (module) {
             typedef HRESULT(WINAPI * SetProcessDpiAwareness)(PROCESS_DPI_AWARENESS);
             SetProcessDpiAwareness setProcessDpiAwareness = (SetProcessDpiAwareness)
                     ::GetProcAddress(module, "SetProcessDpiAwareness");
+
             if (setProcessDpiAwareness)
                 setProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE);
+
             ::FreeLibrary(module);
         }
     }
+
 #endif
 
     // Does not exist in Vista before SP1
@@ -88,12 +79,15 @@ BOOL CInSyncApp::InitInstance() {
 #endif
     {
         HMODULE module = ::LoadLibrary(_T("Kernel32.dll"));
+
         if (module) {
             typedef BOOL(WINAPI * SetProcessDEPPolicyFunction)(DWORD);
             SetProcessDEPPolicyFunction setProcessDEPPolicy = (SetProcessDEPPolicyFunction)
                     ::GetProcAddress(module, "SetProcessDEPPolicy");
+
             if (setProcessDEPPolicy)
                 setProcessDEPPolicy(PROCESS_DEP_ENABLE | PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION);
+
             ::FreeLibrary(module);
         }
     }
@@ -128,13 +122,16 @@ BOOL CInSyncApp::InitInstance() {
     m_pszHelpFilePath = _tcsdup(helpFilePath);
 
     DWORD lName = _countof(moduleName);
+
     if (!::GetComputerName(moduleName, &lName))
         moduleName[0] = 0;
+
     m_computerName = moduleName;
 
     m_adminPriviledge = IsUserAdmin() && (GetElevationType() != TokenElevationTypeLimited);
     m_objectPriviledge = false;
     HANDLE hToken = NULL;
+
     if (m_adminPriviledge) {
         // get the current process token handle
         if (::OpenProcessToken(InSyncApp.m_currentProcess, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY,
@@ -143,8 +140,9 @@ BOOL CInSyncApp::InitInstance() {
                                  SetPrivilege(hToken, SE_TAKE_OWNERSHIP_NAME) &&
                                  SetPrivilege(hToken, SE_BACKUP_NAME) &&
                                  SetPrivilege(hToken, SE_RESTORE_NAME) &&
-								 SetPrivilege(hToken, SE_SHUTDOWN_NAME);
+                                 SetPrivilege(hToken, SE_SHUTDOWN_NAME);
         }
+
         // if we are running elevated we need to reconnect network drives under Vista or later
         ReconnectNetworkDrives();
     }
@@ -152,29 +150,38 @@ BOOL CInSyncApp::InitInstance() {
     CMainDlg *dlg = new CMainDlg;
     dlg->m_autoRun = cmdLineInfo.m_autoRun;
     m_pMainWnd = dlg;
+
     // load the run time configuration specs
     if (!m_optFileNameFromConfig) {
         TCHAR szAppData[MAX_PATH + MAX_PATH];
+
         if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_COMMON_APPDATA, NULL, 0, szAppData)))
             m_optCommonFilename = CString(szAppData) + _T("\\Dillobits Software\\InSync\\InSync.xml");
+
         if (SUCCEEDED(SHGetFolderPath(NULL, m_globalAppData ? CSIDL_COMMON_APPDATA : CSIDL_APPDATA, NULL, 0,
                                       szAppData))) {
             do {
                 CString appdata = CString(szAppData) + _T("\\Dillobits Software");
+
                 if ((!PathIsDirectory(appdata)) && (!::CreateDirectory(appdata, NULL)))
                     break;
+
                 appdata += _T("\\InSync");
+
                 if ((!PathIsDirectory(appdata)) && (!::CreateDirectory(appdata, NULL)))
                     break;
+
                 m_optFilename = appdata + _T("\\InSync.xml");
             } while (false);
         }
     }
+
     // extract the command line
     dlg->m_lpCmdline = m_lpCmdLine;
 
     DWORD major, minor;
     LPBYTE pinfoRawData;
+
     if (NERR_Success == NetWkstaGetInfo(NULL, 100, &pinfoRawData)) {
         WKSTA_INFO_100 *pworkstationInfo = (WKSTA_INFO_100 *)pinfoRawData;
         major = pworkstationInfo->wki100_ver_major;
@@ -191,25 +198,31 @@ BOOL CInSyncApp::InitInstance() {
     // Ok, we are ready to go
     dlg->DoModal();
     delete dlg;
+
     if (hToken)
         ::CloseHandle(hToken);
+
     return false;
 }
 
-int CInSyncApp::ExitInstance() {
+int CInSyncApp::ExitInstance()
+{
     CWinApp::ExitInstance();
     return (int)m_appRc;
 }
 
 
-void CInSyncApp::AppRC(const DWORD rc) {
+void CInSyncApp::AppRC(const DWORD rc)
+{
     if (rc > m_appRc)
         m_appRc = rc;
 }
-DWORD CInSyncApp::AppRC() const {
+DWORD CInSyncApp::AppRC() const
+{
     return m_appRc;
 }
-void CInSyncApp::ClearAppRC() {
+void CInSyncApp::ClearAppRC()
+{
     m_appRc = kINSYNC_NO_ERROR;
 }
 

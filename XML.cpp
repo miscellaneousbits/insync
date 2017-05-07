@@ -1,32 +1,17 @@
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
-
 #include "StdAfx.h"
 
 CXml::CXml()
-    : m_pDoc(NULL) {
+    : m_pDoc(NULL)
+{
 }
 
-CXml::~CXml() {
+CXml::~CXml()
+{
     Close();
 }
 
-bool CXml::Open(LPCTSTR lpszXmlFilePath) {
+bool CXml::Open(LPCTSTR lpszXmlFilePath)
+{
     if (!CreateInstance()) {
         return false;
     }
@@ -35,15 +20,15 @@ bool CXml::Open(LPCTSTR lpszXmlFilePath) {
 
     try {
         vbSuccessful = m_pDoc->load(_variant_t(lpszXmlFilePath));
-    }
-    catch (...) {
+    } catch (...) {
         vbSuccessful = false;
     }
 
     return (vbSuccessful == VARIANT_TRUE);
 }
 
-bool CXml::SaveWithFormatted(LPCTSTR lpszFilePath) {
+bool CXml::SaveWithFormatted(LPCTSTR lpszFilePath)
+{
     if (m_pDoc == NULL) {
         return false;
     }
@@ -58,63 +43,63 @@ bool CXml::SaveWithFormatted(LPCTSTR lpszFilePath) {
 
     try {
 
-		do {
-			// create
-			if (FAILED(pMXWriter.CreateInstance(__uuidof(MSXML2::MXXMLWriter)))) {
-				break;
-			}
+        do {
+            // create
+            if (FAILED(pMXWriter.CreateInstance(__uuidof(MSXML2::MXXMLWriter)))) {
+                break;
+            }
 
-			if (FAILED(pSAXReader.CreateInstance(__uuidof(MSXML2::SAXXMLReader)))) {
-				break;
-			}
+            if (FAILED(pSAXReader.CreateInstance(__uuidof(MSXML2::SAXXMLReader)))) {
+                break;
+            }
 
-			// save in formatted
-			pISAXContentHandler = pMXWriter;
-			pISAXErrorHandler = pMXWriter;
-			pISAXDTDHandler = pMXWriter;
+            // save in formatted
+            pISAXContentHandler = pMXWriter;
+            pISAXErrorHandler = pMXWriter;
+            pISAXDTDHandler = pMXWriter;
 
-			if (FAILED(pMXWriter->put_omitXMLDeclaration(VARIANT_FALSE)) ||
-				FAILED(pMXWriter->put_standalone(VARIANT_TRUE)) ||
-				FAILED(pMXWriter->put_indent(VARIANT_TRUE)) ||
-				FAILED(pMXWriter->put_encoding(_bstr_t(_T("UTF-8"))))
-				) {
-				break;
-			}
+            if (FAILED(pMXWriter->put_omitXMLDeclaration(VARIANT_FALSE)) ||
+                FAILED(pMXWriter->put_standalone(VARIANT_TRUE)) ||
+                FAILED(pMXWriter->put_indent(VARIANT_TRUE)) ||
+                FAILED(pMXWriter->put_encoding(_bstr_t(_T("UTF-8"))))
+               ) {
+                break;
+            }
 
-			if (FAILED(pSAXReader->putContentHandler(pISAXContentHandler)) ||
-				FAILED(pSAXReader->putDTDHandler(pISAXDTDHandler)) ||
-				FAILED(pSAXReader->putErrorHandler(pISAXErrorHandler)) ||
-				FAILED(pSAXReader->putProperty((unsigned short *)L"http://xml.org/sax/properties/lexical-handler",
-					_variant_t(pMXWriter.GetInterfacePtr()))) ||
-				FAILED(pSAXReader->putProperty((unsigned short *)L"http://xml.org/sax/properties/declaration-handler",
-					_variant_t(pMXWriter.GetInterfacePtr())))) {
-				break;
-			}
+            if (FAILED(pSAXReader->putContentHandler(pISAXContentHandler)) ||
+                FAILED(pSAXReader->putDTDHandler(pISAXDTDHandler)) ||
+                FAILED(pSAXReader->putErrorHandler(pISAXErrorHandler)) ||
+                FAILED(pSAXReader->putProperty((unsigned short *)L"http://xml.org/sax/properties/lexical-handler",
+                                               _variant_t(pMXWriter.GetInterfacePtr()))) ||
+                FAILED(pSAXReader->putProperty((unsigned short *)
+                                               L"http://xml.org/sax/properties/declaration-handler",
+                                               _variant_t(pMXWriter.GetInterfacePtr())))) {
+                break;
+            }
 
-			IStream *pOutStream = NULL;
+            IStream *pOutStream = NULL;
 
-			if (FAILED(CreateStreamOnHGlobal(NULL, true, &pOutStream))) {
-				break;
-			}
+            if (FAILED(CreateStreamOnHGlobal(NULL, true, &pOutStream))) {
+                break;
+            }
 
-			if (FAILED(pMXWriter->put_output(_variant_t(pOutStream)))) {
-				break;
-			}
+            if (FAILED(pMXWriter->put_output(_variant_t(pOutStream)))) {
+                break;
+            }
 
-			if (FAILED(pSAXReader->parse(m_pDoc.GetInterfacePtr()))) {
-				break;
-			}
+            if (FAILED(pSAXReader->parse(m_pDoc.GetInterfacePtr()))) {
+                break;
+            }
 
-			if (!CXml::SaveStreamToFile(pOutStream, lpszFilePath)) {
-				break;
-			}
+            if (!CXml::SaveStreamToFile(pOutStream, lpszFilePath)) {
+                break;
+            }
 
-			result = true;
+            result = true;
 
-		} while (false);
+        } while (false);
 
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     RELEASE_PTR(pISAXDTDHandler);
@@ -126,7 +111,8 @@ bool CXml::SaveWithFormatted(LPCTSTR lpszFilePath) {
     return result;
 }
 
-bool CXml::SaveStreamToFile(IStream *pStream, LPCTSTR lpszFilePath) {
+bool CXml::SaveStreamToFile(IStream *pStream, LPCTSTR lpszFilePath)
+{
     LPVOID pOutput = NULL;
     HGLOBAL hGlobal = NULL;
 
@@ -163,7 +149,8 @@ bool CXml::SaveStreamToFile(IStream *pStream, LPCTSTR lpszFilePath) {
     return true;
 }
 
-CXmlNodePtr CXml::CreateNode(LPCTSTR lpszName) {
+CXmlNodePtr CXml::CreateNode(LPCTSTR lpszName)
+{
 
     CXmlNodePtr pChild(new CXmlNode());
 
@@ -172,14 +159,14 @@ CXmlNodePtr CXml::CreateNode(LPCTSTR lpszName) {
         pChildNode = m_pDoc->createNode(_variant_t(_T("element")), _bstr_t(lpszName), _bstr_t(""));
         pChild->m_pNode = pChildNode;
         RELEASE_PTR(pChildNode);
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return pChild;
 }
 
-bool CXml::Create(LPCTSTR lpszRootName) {
+bool CXml::Create(LPCTSTR lpszRootName)
+{
     HRESULT hr = S_FALSE;
 
     if (!CreateInstance()) {
@@ -203,15 +190,15 @@ bool CXml::Create(LPCTSTR lpszRootName) {
         m_pDoc->appendChild(root.m_pNode);
 
         vbSuccessful = SUCCEEDED(hr) ? VARIANT_TRUE : VARIANT_FALSE;
-    }
-    catch (...) {
+    } catch (...) {
         vbSuccessful = false;
     }
 
     return (vbSuccessful == VARIANT_TRUE);
 }
 
-bool CXml::CreateInstance() {
+bool CXml::CreateInstance()
+{
     Close();
 
     if (FAILED(m_pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument)))) {
@@ -228,11 +215,13 @@ bool CXml::CreateInstance() {
     return true;
 }
 
-void CXml::Close() {
+void CXml::Close()
+{
     RELEASE_PTR(m_pDoc);
 }
 
-CXmlNodePtr CXml::GetRoot() {
+CXmlNodePtr CXml::GetRoot()
+{
     CXmlNodePtr pNode(new CXmlNode());
 
     try {
@@ -240,14 +229,14 @@ CXmlNodePtr CXml::GetRoot() {
         m_pDoc->get_documentElement(&pElement);
         pNode->m_pNode = pElement;
         RELEASE_PTR(pElement);
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return pNode;
 }
 
-CString CXmlNode::GetName() const {
+CString CXmlNode::GetName() const
+{
     CString strRet;
 
     try {
@@ -259,14 +248,14 @@ CString CXmlNode::GetName() const {
             SysFreeString(bstr);
             bstr = NULL;
         }
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return strRet;
 }
 
-bool CXmlNode::_GetAttribute(CString &strName IN, CString &strValue) const {
+bool CXmlNode::_GetAttribute(CString &strName IN, CString &strValue) const
+{
     if (m_pNode == NULL) {
         return false;
     }
@@ -283,8 +272,7 @@ bool CXmlNode::_GetAttribute(CString &strName IN, CString &strValue) const {
 
         if (pIXMLDOMNode == NULL) {
             strValue.Empty();
-        }
-        else {
+        } else {
             VARIANT varValue;
 
             if (FAILED(pIXMLDOMNode->get_nodeValue(&varValue))) {
@@ -296,21 +284,22 @@ bool CXmlNode::_GetAttribute(CString &strName IN, CString &strValue) const {
 
         RELEASE_PTR(pIXMLDOMNode);
         RELEASE_PTR(pIXMLDOMNamedNodeMap);
-    }
-    catch (...) {
+    } catch (...) {
         return false;
     }
 
     return true;
 }
 
-CString CXmlNode::GetAttribute(CString strName) const {
+CString CXmlNode::GetAttribute(CString strName) const
+{
     CString strValue;
     _GetAttribute(strName, strValue);
     return strValue;
 }
 
-bool CXmlNode::_SetAttribute(CString &strName, CString &strValue) const {
+bool CXmlNode::_SetAttribute(CString &strName, CString &strValue) const
+{
     if (m_pNode == NULL) {
         return false;
     }
@@ -328,20 +317,21 @@ bool CXmlNode::_SetAttribute(CString &strName, CString &strValue) const {
         RELEASE_PTR(pAttribute);
         RELEASE_PTR(pElement);
         RELEASE_PTR(pDoc);
-    }
-    catch (...) {
+    } catch (...) {
         return false;
     }
 
     return true;
 }
 
-bool CXmlNode::SetAttribute(CString strName, LPCTSTR lpszValue) {
+bool CXmlNode::SetAttribute(CString strName, LPCTSTR lpszValue)
+{
     CString strValue(lpszValue);
     return _SetAttribute(strName, strValue);
 }
 
-CXmlNodePtr CXmlNode::GetChild(CString strName) {
+CXmlNodePtr CXmlNode::GetChild(CString strName)
+{
 
     CXmlNodePtr pChild(new CXmlNode());
 
@@ -353,14 +343,14 @@ CXmlNodePtr CXmlNode::GetChild(CString strName) {
         pChildNode = m_pNode->selectSingleNode(_bstr_t((LPCTSTR)strXPath));
         pChild->m_pNode = pChildNode;
         RELEASE_PTR(pChildNode);
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return pChild;
 }
 
-CXmlNodePtr CXmlNode::NewChild(CString strName) {
+CXmlNodePtr CXmlNode::NewChild(CString strName)
+{
     CXmlNodePtr pChild(new CXmlNode());
 
     try {
@@ -374,14 +364,14 @@ CXmlNodePtr CXmlNode::NewChild(CString strName) {
         m_pNode->appendChild(pChildNode);
         pChild->m_pNode = pChildNode;
         RELEASE_PTR(pChildNode);
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return pChild;
 }
 
-CXmlNodesPtr CXmlNode::GetChildren() {
+CXmlNodesPtr CXmlNode::GetChildren()
+{
     CXmlNodesPtr pNodes(new CXmlNodes());
 
     try {
@@ -390,36 +380,36 @@ CXmlNodesPtr CXmlNode::GetChildren() {
 
         pNodes->m_pNodeList = pNodeList;
         RELEASE_PTR(pNodeList);
-    }
-    catch (...) {
+    } catch (...) {
     }
 
     return pNodes;
 }
 
 
-bool CXmlNode::IsNull() const {
+bool CXmlNode::IsNull() const
+{
     return m_pNode == NULL;
 }
 
-bool CXmlNode::GetValue(bool bDefault) const {
+bool CXmlNode::GetValue(bool bDefault) const
+{
     CString strValue;
     _GetValue(strValue);
 
     if (strValue.Compare(_T("1")) == 0) {
         return true;
-    }
-    else if (strValue.Compare(_T("0")) == 0) {
+    } else if (strValue.Compare(_T("0")) == 0) {
         return false;
-    }
-    else {
+    } else {
         strValue = bDefault ? _T("1") : _T("0");
         _SetValue(strValue);
         return bDefault;
     }
 }
 
-bool CXmlNode::_GetValue(CString &strValue) const {
+bool CXmlNode::_GetValue(CString &strValue) const
+{
     HRESULT hr = S_OK;
 
     try {
@@ -431,21 +421,20 @@ bool CXmlNode::_GetValue(CString &strValue) const {
             SysFreeString(bstr);
             bstr = NULL;
         }
-    }
-    catch (...) {
+    } catch (...) {
         return false;
     }
 
     return SUCCEEDED(hr);
 }
 
-bool CXmlNode::_SetValue(CString &strValue IN) const {
+bool CXmlNode::_SetValue(CString &strValue IN) const
+{
     HRESULT hr = S_OK;
 
     try {
         hr = m_pNode->put_text(_bstr_t(strValue));
-    }
-    catch (_com_error e) {
+    } catch (_com_error e) {
         return false;
     }
 
@@ -453,7 +442,8 @@ bool CXmlNode::_SetValue(CString &strValue IN) const {
 }
 
 // get DWORD value
-DWORD CXmlNode::GetValue(DWORD dwDefault) const {
+DWORD CXmlNode::GetValue(DWORD dwDefault) const
+{
     CString strValue;
     _GetValue(strValue);
 
@@ -465,7 +455,8 @@ DWORD CXmlNode::GetValue(DWORD dwDefault) const {
     return _tcstoul(strValue, NULL, 10);
 }
 
-CString CXmlNode::GetValue(LPCTSTR lpszValue) const {
+CString CXmlNode::GetValue(LPCTSTR lpszValue) const
+{
     CString strValue;
     _GetValue(strValue);
 
@@ -478,60 +469,71 @@ CString CXmlNode::GetValue(LPCTSTR lpszValue) const {
     return strValue;
 }
 
-bool CXmlNode::SetValue(bool bValue) {
+bool CXmlNode::SetValue(bool bValue)
+{
     CString strValue(bValue ? _T("1") : _T("0"));
     return _SetValue(strValue);
 }
 
-bool CXmlNode::SetValue(DWORD dwValue) {
+bool CXmlNode::SetValue(DWORD dwValue)
+{
     CString strValue;
     strValue.Format(_T("%lu"), dwValue);
     return _SetValue(strValue);
 }
 
-bool CXmlNode::SetValue(LPCTSTR lpszValue) {
+bool CXmlNode::SetValue(LPCTSTR lpszValue)
+{
     CString strValue(lpszValue);
     return _SetValue(strValue);
 }
 
-CXmlNode::CXmlNode() {
+CXmlNode::CXmlNode()
+{
     m_pNode = NULL;
 }
 
-CXmlNode::CXmlNode(const CXmlNode &refNode) {
+CXmlNode::CXmlNode(const CXmlNode &refNode)
+{
     m_pNode = refNode.m_pNode;
 }
 
-CXmlNode::CXmlNode(const CXmlNodePtr pNode) {
+CXmlNode::CXmlNode(const CXmlNodePtr pNode)
+{
     m_pNode = pNode->m_pNode;
 }
 
 CXmlNodes::CXmlNodes()
-    : m_pNodeList(NULL) {
+    : m_pNodeList(NULL)
+{
 }
 
-CXmlNode::CXmlNode(MSXML2::IXMLDOMNodePtr pNode IN) {
+CXmlNode::CXmlNode(MSXML2::IXMLDOMNodePtr pNode IN)
+{
     m_pNode = pNode;
 }
 
-CXmlNodes::~CXmlNodes() {
+CXmlNodes::~CXmlNodes()
+{
     Release();
 }
 
-void CXmlNodes::Release() {
+void CXmlNodes::Release()
+{
     RELEASE_PTR(m_pNodeList);
 }
 
-LONG CXmlNodes::GetCount() {
+LONG CXmlNodes::GetCount()
+{
     try {
         return m_pNodeList->length;
-    }
-    catch (_com_error e) {
+    } catch (_com_error e) {
         return -1;
     }
 }
 
-CXmlNodePtr CXmlNodes::GetItem(LONG nIndex) {
+CXmlNodePtr CXmlNodes::GetItem(LONG nIndex)
+{
     CXmlNodePtr pNode(new CXmlNode(m_pNodeList->item[nIndex]));
     return pNode;
 }

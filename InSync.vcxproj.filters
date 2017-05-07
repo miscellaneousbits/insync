@@ -49,15 +49,15 @@
     <Filter Include="Source Files\Nodes">
       <UniqueIdentifier>{5cbb2992-3c05-464e-9d89-659909f90f40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{2daa1fcd-1d4a-4a0f-811c-0c6ad62aa13d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ExcludedDirectoriesDlg.cpp">
       <Filter>Source Files\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="JobDialog.cpp">
-      <Filter>Source Files\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="SchedulerDialog.cpp">
       <Filter>Source Files\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="CmdLnInfo.cpp">
@@ -73,9 +73,6 @@
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Run.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="ScheduledTask.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="StdAfx.cpp">
@@ -119,9 +116,6 @@
     </ClCompile>
     <ClCompile Include="ToolTipCtrl.cpp">
       <Filter>Source Files\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="SchedulerEvent.cpp">
-      <Filter>Source Files\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="JobNode.cpp">
       <Filter>Source Files\Nodes</Filter>
@@ -253,9 +247,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SchedulerDialog.h">
-      <Filter>Header Files\Dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="JobDialog.h">
       <Filter>Header Files\Dialogs</Filter>
     </ClInclude>
@@ -304,9 +295,6 @@
     <ClInclude Include="Worker.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Verification.h">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="ScopedLock.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
@@ -328,14 +316,8 @@
     <ClInclude Include="ToolTipCtrl.h">
       <Filter>Header Files\Controls</Filter>
     </ClInclude>
-    <ClInclude Include="SchedulerEvent.h">
-      <Filter>Header Files\Dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="Nodes.h">
       <Filter>Header Files\Nodes</Filter>
-    </ClInclude>
-    <ClInclude Include="Header.h">
-      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="XML.h">
       <Filter>Header Files\Utilities</Filter>
@@ -358,5 +340,10 @@
     <CustomBuild Include="Resource.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="AStyle.txt">
+      <Filter>Misc</Filter>
+    </Text>
   </ItemGroup>
 </Project>

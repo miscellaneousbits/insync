@@ -102,12 +102,14 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EmbedManifest>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">c:\Temp\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    </IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EmbedManifest>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">c:\Temp\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    </IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EmbedManifest>
@@ -132,25 +134,29 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|x64'" />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>c:\Temp\</IntDir>
+    <IntDir>
+    </IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\x64\</OutDir>
     <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
-    <IntDir>c:\Temp\</IntDir>
+    <IntDir>
+    </IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\x64\</OutDir>
     <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>c:\Temp\</IntDir>
+    <IntDir>
+    </IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\x86\</OutDir>
     <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <IntDir>c:\Temp\</IntDir>
+    <IntDir>
+    </IntDir>
     <OutDir>$(SolutionDir)$(Configuration)\x86\</OutDir>
     <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
@@ -595,12 +601,6 @@
     <ClCompile Include="MainDlg.cpp" />
     <ClCompile Include="Merge.cpp" />
     <ClCompile Include="Run.cpp" />
-    <ClCompile Include="ScheduledTask.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="SchedulerDialog.cpp" />
-    <ClCompile Include="SchedulerEvent.cpp" />
     <ClCompile Include="SrcNode.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
@@ -669,7 +669,6 @@
     <ClInclude Include="DirListBox.h" />
     <ClInclude Include="ExcludedDirectoriesDlg.h" />
     <ClInclude Include="FilePath.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="HelpContext.h" />
     <ClInclude Include="InSync.h" />
     <ClInclude Include="InsyncButton.h" />
@@ -705,11 +704,8 @@
     </CustomBuild>
     <ClInclude Include="Run.h" />
     <ClInclude Include="ScheduledTask.h" />
-    <ClInclude Include="SchedulerDialog.h" />
-    <ClInclude Include="SchedulerEvent.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="Util.h" />
-    <ClInclude Include="Verification.h" />
     <ClInclude Include="Versioninfo.h" />
     <ClInclude Include="VssHelper.h" />
     <ClInclude Include="Worker.h" />
@@ -723,6 +719,9 @@
     <Xml Include="Insync.manifest.xml">
       <SubType>Designer</SubType>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="AStyle.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

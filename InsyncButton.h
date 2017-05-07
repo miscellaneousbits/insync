@@ -1,11 +1,11 @@
 #pragma once
 
-
 // CInSyncButton
 
 class CInsyncToolTipCtrl;
 
-class CInSyncButton : public CMFCButton {
+class CInSyncButton : public CMFCButton
+{
     DECLARE_DYNAMIC(CInSyncButton)
 
 public:

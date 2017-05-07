@@ -1,23 +1,7 @@
 #pragma once
-//****************************************************************************
-//
-// Copyright (c) 1998-2014 Dillobits Software Inc.
-//
-// This program is the proprietary software of Dillobits Software and/or its
-// licensors, and may only be used, duplicated, modified or distributed
-// pursuant to the terms and conditions of a separate, written license
-// agreement executed between you and Dillobits Software (an "Authorized
-// License"). Except as set forth in an Authorized License, Dillobits Software
-// grants no license (express or implied), right to use, or waiver of any kind
-// with respect to the Software, and Dillobits Software expressly reserves all
-// rights in and to the Software and all intellectual property rights therein.
-// IF YOU HAVE NOT AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
-// SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY DILLOBITS SOFTWARE AND
-// DISCONTINUE ALL USE OF THE SOFTWARE.
-//
-//****************************************************************************
 
-class CExecutable {
+class CExecutable
+{
 public:
     CExecutable();
     CExecutable(const CExecutable &e);
@@ -31,7 +15,8 @@ class CSrcNode;
 class CTrgNode;
 class CRun;
 
-class CExecutableWithInclude : public CExecutable {
+class CExecutableWithInclude : public CExecutable
+{
 public:
     CExecutableWithInclude();
     CExecutableWithInclude(const CExecutableWithInclude &e);
@@ -63,7 +48,8 @@ typedef CTaskWork *TaskWorkPtr;
 DWORD TrgThread(LPVOID pParam);
 
 struct CFilePathCompare {
-    bool operator()(const CFilePath &x, const CFilePath &y) const {
+    bool operator()(const CFilePath &x, const CFilePath &y) const
+    {
         return x.Display().MakeUpper() < y.Display().MakeUpper();
     }
 };
@@ -71,7 +57,8 @@ struct CFilePathCompare {
 typedef set<CFilePath, CFilePathCompare, std::allocator<int>> FilePathSet;
 typedef FilePathSet::iterator FilePathSetIter;
 
-class CTrgNode : public CExecutableWithInclude {
+class CTrgNode : public CExecutableWithInclude
+{
 public:
     CTrgNode(CJobNode *, CSrcNode *);
     CTrgNode(const CTrgNode &);
@@ -93,9 +80,11 @@ public:
     bool m_dontDelete : 1;
 
 private:
-    void(__thiscall CTrgNode::*FileInBoth)(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+    void(__thiscall CTrgNode::*FileInBoth)(const CFileData &, const CFileData &, const CFilePath &,
+                                           const CFilePath &,
                                            PVOID buffer);
-    void(__thiscall CTrgNode::*DirInBoth)(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
+    void(__thiscall CTrgNode::*DirInBoth)(const CFileData &, const CFileData &, const CFilePath &,
+                                          const CFilePath &, PVOID buffer);
     void SetThreadId();
     void FatalError(LPCTSTR);
     bool AbortedByUser();
@@ -129,20 +118,28 @@ private:
     bool RemoveADirectory(LPCTSTR folder, LPCTSTR msg);
     bool IncludedFile(LPCTSTR);
     bool ScanDir(FileDataList &, FileDataList &, const CFilePath &, const bool);
-    bool IncludeFolder(const CFileData &, const CFilePath &, const CFilePath &, CFilePath &, CFilePath &);
+    bool IncludeFolder(const CFileData &, const CFilePath &, const CFilePath &, CFilePath &,
+                       CFilePath &);
     bool ExcludedFolder(const CFilePath &path);
     void RenameTargetFileOrDirIfDifferent(const CFilePath &, const CFileData &, const CFileData &);
-    void MirrorFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
+    void MirrorFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                          PVOID buffer);
     void MirrorFileInTrgOnly(const CFileData &, const CFilePath &);
     void FileInSrcOnly(const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
     void MirrorDirInTrgOnly(const CFileData &, const CFilePath &);
-    void MirrorDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
+    void MirrorDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                         PVOID buffer);
     void DirInSrcOnly(const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
-    void BackupFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
-    void BackupDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
-    void TwoWayFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
-    void TwoWayDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &, PVOID buffer);
-    CopyFileError CopyAFile(LPCTSTR, LPCTSTR, const CFileData &, const CFileData &, const bool, CJobNode *, PVOID buffer,
+    void BackupFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                          PVOID buffer);
+    void BackupDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                         PVOID buffer);
+    void TwoWayFileInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                          PVOID buffer);
+    void TwoWayDirInBoth(const CFileData &, const CFileData &, const CFilePath &, const CFilePath &,
+                         PVOID buffer);
+    CopyFileError CopyAFile(LPCTSTR, LPCTSTR, const CFileData &, const CFileData &, const bool,
+                            CJobNode *, PVOID buffer,
                             const bool, const bool);
     CopyFileError VerifyAFile(LPCTSTR, LPCTSTR, const UINT64, PVOID buffer, const bool);
     CString FileLogMsg(LPCTSTR, UINT64, const CFilePath &, const CFilePath &);
@@ -172,7 +169,8 @@ typedef TrgNodeList::const_iterator ConstTrgNodeListIter;
 
 DWORD SrcThread(LPVOID pParam);
 
-class CSrcNode : public CExecutableWithInclude {
+class CSrcNode : public CExecutableWithInclude
+{
 public:
     CSrcNode(CJobNode *);
     CSrcNode(const CSrcNode &);
@@ -203,7 +201,8 @@ typedef VoidPtrList::const_iterator ConstVoidPtrListIter;
 
 DWORD JobThread(LPVOID pParam);
 
-class CJobNode : public CExecutable {
+class CJobNode : public CExecutable
+{
 public:
     CJobNode();
     CJobNode(const CJobNode &node);
@@ -222,10 +221,12 @@ public:
     void NonFatalTaskError(const bool, LPCTSTR, LPCTSTR, LPCTSTR = NULL, LPCTSTR = NULL);
     void IncrementCount(const enum CounterIndex cx);
     void AddToCount(const enum CounterIndex cx, UINT64 n);
-    CCriticalSection *LogLock() {
+    CCriticalSection *LogLock()
+    {
         return &m_logLock;
     }
-    void LogFlags(const LogFlagsType flags) {
+    void LogFlags(const LogFlagsType flags)
+    {
         m_logFlags = flags;
     }
 
@@ -239,7 +240,7 @@ public:
     HandleList m_waitAfterList;
     VoidPtrList m_beforeJobs;
     CString m_runState;
-	RunModes m_mode;
+    RunModes m_mode;
 
     bool m_selected : 1;
     bool m_running : 1;
