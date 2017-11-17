@@ -204,7 +204,7 @@
 			<value>%VSNET_PROJ_VER%</value>
 		</macro>
 		<macro name='SOLUTIONDIR'>
-			<value>%USERROOT%\dillobits\projects\dev\insync</value>
+			<value>%USERROOT%\projects\insync</value>
 		</macro>
 		<macro name='USERROOT'>
 			<value>c:\users\jcyr\data</value>
