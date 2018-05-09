@@ -32,16 +32,6 @@
 			<indent type='3'>1</indent>
 			<name>VS 2017 Win32</name>
 		</step>
-		<step action='Sign Code'>
-			<CertName>Jean M. Cyr</CertName>
-			<Filename>%SOLUTIONDIR%\Release\x86\insync.exe</Filename>
-			<KeepMod type='11'>-1</KeepMod>
-			<Store type='3'>2</Store>
-			<TimeServer>http://timestamp.comodoca.com/authenticode</TimeServer>
-			<buildfailsteps type='11'>0</buildfailsteps>
-			<indent type='3'>1</indent>
-			<name>Sign Win32 EXE</name>
-		</step>
 		<step action='Subroutine Call'>
 			<Expand type='11'>-1</Expand>
 			<ParamValues array='0'>x86</ParamValues>
@@ -50,15 +40,6 @@
 			<buildfailsteps type='11'>0</buildfailsteps>
 			<indent type='3'>1</indent>
 			<name>Pkg Win32</name>
-		</step>
-		<step action='Subroutine Call'>
-			<Expand type='11'>-1</Expand>
-			<ParamValues array='0'>x86</ParamValues>
-			<Parameters array='0'>INSYNCPLATFORM</Parameters>
-			<SubName>Sign</SubName>
-			<buildfailsteps type='11'>0</buildfailsteps>
-			<indent type='3'>1</indent>
-			<name>Sign Win32 MSI</name>
 		</step>
 		<step action='Make VS 2017'>
 			<Attr type='11'>-1</Attr>
@@ -70,17 +51,6 @@
 			<indent type='3'>1</indent>
 			<name>Make VS 2017 X64</name>
 		</step>
-		<step action='Sign Code'>
-			<CertName>Jean M. Cyr</CertName>
-			<Filename>%SOLUTIONDIR%\Release\x64\insync.exe</Filename>
-			<InfoURL>https://www.dillobits.com</InfoURL>
-			<KeepMod type='11'>-1</KeepMod>
-			<Store type='3'>2</Store>
-			<TimeServer>http://timestamp.comodoca.com/authenticode</TimeServer>
-			<buildfailsteps type='11'>0</buildfailsteps>
-			<indent type='3'>1</indent>
-			<name>Sign X64 EXE</name>
-		</step>
 		<step action='Subroutine Call'>
 			<Expand type='11'>-1</Expand>
 			<ParamValues array='0'>x64</ParamValues>
@@ -89,15 +59,6 @@
 			<buildfailsteps type='11'>0</buildfailsteps>
 			<indent type='3'>1</indent>
 			<name>Pkg X64</name>
-		</step>
-		<step action='Subroutine Call'>
-			<Expand type='11'>-1</Expand>
-			<ParamValues array='0'>x64</ParamValues>
-			<Parameters array='0'>INSYNCPLATFORM</Parameters>
-			<SubName>Sign</SubName>
-			<buildfailsteps type='11'>0</buildfailsteps>
-			<indent type='3'>1</indent>
-			<name>Sign x64 MSI</name>
 		</step>
 		<step action='Delete Files'>
 			<Ext>*.msi</Ext>
