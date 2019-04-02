@@ -538,7 +538,7 @@ static CString ConvertToRegex(LPCTSTR wildcard)
     return buffer;
 }
 
-tr1::wregex *ParseIncludeExcludeString(LPCTSTR names)
+wregex *ParseIncludeExcludeString(LPCTSTR names)
 {
     CString regexp;
     LPCTSTR cp1 = names;
@@ -593,10 +593,10 @@ tr1::wregex *ParseIncludeExcludeString(LPCTSTR names)
         }
     }
 
-    tr1::wregex *re;
+    wregex *re;
 
     try {
-        re = new tr1::wregex(CString(_T('^')) + regexp + _T('$'),
+        re = new wregex(CString(_T('^')) + regexp + _T('$'),
                              regex_constants::icase | regex_constants::optimize);
     } catch (...) {
         re = NULL;

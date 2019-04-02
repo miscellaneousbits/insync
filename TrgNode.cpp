@@ -456,9 +456,9 @@ bool CTrgNode::IncludedFile(LPCTSTR name)
     StrListIter current;
 
     if (m_includes) {
-        tr1::wcmatch res;
+        wcmatch res;
 
-        if (tr1::regex_match(name, res, *m_includes)) {
+        if (regex_match(name, res, *m_includes)) {
             goto excludes;
         }
 
@@ -468,9 +468,9 @@ bool CTrgNode::IncludedFile(LPCTSTR name)
 excludes:
 
     if (m_excludes) {
-        tr1::wcmatch res;
+        wcmatch res;
 
-        if (tr1::regex_match(name, res, *m_excludes)) {
+        if (regex_match(name, res, *m_excludes)) {
             return false;
         }
     }

@@ -318,7 +318,7 @@ void CJobDialog::OnOK()
         }
     }
 
-    tr1::wregex *re;
+    wregex *re;
 
     for (snode = m_jobNode->m_childrenList.begin(); snode != m_jobNode->m_childrenList.end(); ++snode) {
         CSrcNode *src = *snode;

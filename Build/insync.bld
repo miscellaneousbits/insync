@@ -32,6 +32,14 @@
 			<indent type='3'>1</indent>
 			<name>VS 2017 Win32</name>
 		</step>
+		<step action='MSBuild'>
+			<M>*</M>
+			<NoLogo type='11'>-1</NoLogo>
+			<ProjectFile>C:\Users\jcyr\Data\Projects\insync\InSync.vcxproj</ProjectFile>
+			<buildfailsteps type='11'>0</buildfailsteps>
+			<indent type='3'>1</indent>
+			<name>MSBuild</name>
+		</step>
 		<step action='Subroutine Call'>
 			<Expand type='11'>-1</Expand>
 			<ParamValues array='0'>x86</ParamValues>

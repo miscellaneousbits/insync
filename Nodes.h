@@ -148,7 +148,7 @@ private:
     static const DWORD k_perWaitPass = 16;
 
     LPTSTR m_fatal;
-    tr1::wregex *m_includes, *m_excludes;
+    wregex *m_includes, *m_excludes;
     FilePathSet m_excludedFolders;
     RunModes m_effectiveMode;
     DWORD m_fileErrors;

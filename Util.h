@@ -24,5 +24,5 @@ TOKEN_ELEVATION_TYPE GetElevationType(void);
 void CopyFileACL(HANDLE, HANDLE);
 bool CopyNamedACLIfDifferent(LPCTSTR, LPCTSTR);
 bool SupportsPermissions(LPCTSTR);
-tr1::wregex *ParseIncludeExcludeString(LPCTSTR);
+wregex *ParseIncludeExcludeString(LPCTSTR);
 QWORD measureIOPS();
