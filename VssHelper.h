@@ -25,7 +25,7 @@ private:
     void ReleaseComponents();
 
     IVssBackupComponents *m_components;
-    IVssAsync *m_pAsync;
+    IVssAsync *m_pAsync = nullptr;
     VSS_ID m_snapshotSetId;
     VolMap m_vMap;
 };

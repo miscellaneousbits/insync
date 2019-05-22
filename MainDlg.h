@@ -42,7 +42,7 @@ public:
 
     JobNodeList m_jobList;
     CInsyncListbox m_jobListCtl;
-    LPTSTR m_lpCmdline;
+    LPTSTR m_lpCmdline = nullptr;
     CString m_locale;
     SYSTEM_INFO m_systemInfo;
     ITaskbarList3 *m_ptl;

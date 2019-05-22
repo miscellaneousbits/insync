@@ -50,8 +50,8 @@ public:
     CString m_userName;
     CString m_userKey;
     int m_startupDelay;
-    HANDLE m_currentProcess;
-    USHORT m_scale;
+    HANDLE m_currentProcess = INVALID_HANDLE_VALUE;
+    USHORT m_scale = 0;
 
     bool m_optFileNameFromConfig : 1;
     bool m_globalAppData : 1;

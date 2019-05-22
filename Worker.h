@@ -16,6 +16,6 @@ public:
 private:
 
     static CRun *m_run;
-    PVOID m_copyBuffer;
+    PVOID m_copyBuffer = nullptr;
 
 }; // CWorker

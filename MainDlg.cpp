@@ -193,7 +193,7 @@ void CMainDlg::ParseFileOrJobName(LPCTSTR s)
                                 break;
 
                             ParseJobName(cp1);
-                            cp1 += (tl + 1);
+                            cp1 += (size_t(tl) + 1);
                         }
                     }
 

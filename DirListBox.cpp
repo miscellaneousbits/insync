@@ -56,7 +56,7 @@ void CDirListBox::OnDropFiles(HDROP hDropInfo)
 
     for (UINT fileIndex = 0; fileIndex < nFiles; fileIndex++) {
         UINT fSize = DragQueryFile(hDropInfo, fileIndex, NULL, 0);
-        LPTSTR fName = new TCHAR[fSize + 1];
+        LPTSTR fName = new TCHAR[size_t(fSize) + 1];
 
         if (fName) {
             fSize = DragQueryFile(hDropInfo, fileIndex, fName, fSize + 1);

@@ -570,8 +570,8 @@ wregex *ParseIncludeExcludeString(LPCTSTR names)
             }
 
             DWORD l = (DWORD)(cp2 - cp1);
-            LPTSTR cp3 = new TCHAR[l + 1];
-            _tcsncpy_s(cp3, l + 1, cp1, l);
+            LPTSTR cp3 = new TCHAR[size_t(l) + 1];
+            _tcsncpy_s(cp3, size_t(l) + 1, cp1, l);
             *(cp3 + l) = 0;
 
             if (regexp.GetLength()) {

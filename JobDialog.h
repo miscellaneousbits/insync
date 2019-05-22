@@ -76,8 +76,8 @@ private:
     CString m_lastSourceFolder;
     CString m_lastDestFolder;
 
-    int m_currentTrgIx;
-    int m_currentSrcIx;
+    int m_currentTrgIx = 0;
+    int m_currentSrcIx = 0;
     CInSyncCheck m_srcVolCheckCtl;
     CInSyncCheck m_trgVolCheckCtl;
     CInSyncCheck m_trgDontDeleteCheckCtl;

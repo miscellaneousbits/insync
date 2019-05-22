@@ -7,7 +7,7 @@ public:
     CExecutable(const CExecutable &e);
     void Start(LPTHREAD_START_ROUTINE proc);
 
-    HANDLE m_winThread;
+    HANDLE m_winThread = INVALID_HANDLE_VALUE;
 };
 
 class CJobNode;

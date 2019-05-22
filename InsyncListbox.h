@@ -18,10 +18,10 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    int m_cxSpace;
-    int m_cySpace;
-    int m_cyItem;
-    int m_extra;
+    int m_cxSpace = 0;
+    int m_cySpace = 0;
+    int m_cyItem = 0;
+    int m_extra = 0;
     HTHEME m_hTheme;
     CFont m_boldFont;
     CFont m_boldItalicFont;
