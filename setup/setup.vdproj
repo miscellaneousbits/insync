@@ -15,7 +15,19 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_581BE0DC33F74ECEB0CAC17DD2B1F6FB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9448B7148C354D9EA133A157B0CE285F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F5594C8B51224310A812CB27AB0E441B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -101,6 +113,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_581BE0DC33F74ECEB0CAC17DD2B1F6FB"
+            {
+            "SourcePath" = "8:..\\HelpManual\\insync.chm"
+            "TargetName" = "8:insync.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_13BAF11A144C4AAFB5140F2C505A96C6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F5594C8B51224310A812CB27AB0E441B"
+            {
+            "SourcePath" = "8:..\\ico\\insync.ico"
+            "TargetName" = "8:insync.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_13BAF11A144C4AAFB5140F2C505A96C6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -156,9 +208,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:setup"
+        "ProductName" = "8:InSync"
         "ProductCode" = "8:{50698520-B7F2-480F-9CE3-8FA6FF68EE23}"
-        "PackageCode" = "8:{681E83C2-9C8E-479C-BB5A-9923085B513A}"
+        "PackageCode" = "8:{33D7697B-9BC2-4139-B370-5CA9EDDB3AD2}"
         "UpgradeCode" = "8:{09A36C4F-FD51-4506-9C5B-4E71ED2F1714}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -175,7 +227,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_F5594C8B51224310A812CB27AB0E441B"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -290,6 +342,20 @@
             "Folder" = "8:_611952FE9F5F4D6789CDD367FAAA88C3"
             "WorkingFolder" = "8:_13BAF11A144C4AAFB5140F2C505A96C6"
             "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C93F538EB9B1481C91B03E215C480BBF"
+            {
+            "Name" = "8:InSync Help"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_581BE0DC33F74ECEB0CAC17DD2B1F6FB"
+            "Folder" = "8:_611952FE9F5F4D6789CDD367FAAA88C3"
+            "WorkingFolder" = "8:_611952FE9F5F4D6789CDD367FAAA88C3"
+            "Icon" = "8:_F5594C8B51224310A812CB27AB0E441B"
             "Feature" = "8:"
             }
         }
