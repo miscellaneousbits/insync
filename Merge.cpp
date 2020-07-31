@@ -402,7 +402,8 @@ CString CTrgNode::FileLogMsg(LPCTSTR mode, UINT64 fileSize, const CFilePath &tNa
     return m;
 }
 
-#define FILE_ATTRIBUTE_ALL (FILE_ATTRIBUTE_READONLY | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM)
+//#define FILE_ATTRIBUTE_ALL (FILE_ATTRIBUTE_READONLY | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM)
+#define FILE_ATTRIBUTE_ALL (0)
 
 void CTrgNode::MirrorFileInBoth(const CFileData &from, const CFileData &to,
                                 const CFilePath &fromDir,
